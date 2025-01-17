@@ -1,0 +1,46 @@
+name: Deploy to github pages website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generar-ficheros:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Revisar el código
+      uses: actions/checkout@v2
+
+    - name: Ejecutar el comando para generar los ficheros
+      run: |
+        # Aquí va el comando para generar los archivos
+        mkdir generated_files
+        echo "Contenido de ejemplo" > generated_files/archivo1.txt
+        echo "Otro contenido de ejemplo" > generated_files/archivo2.txt
+
+  subir-ficheros:
+    runs-on: ubuntu-latest
+    needs: generar-ficheros
+
+    steps:
+    - name: Revisar el código
+      uses: actions/checkout@v2
+
+    - name: Configurar Git para hacer commit
+      run: |
+        git config --global user.name "Tu Nombre"
+        git config --global user.email "tu-email@dominio.com"
+
+    - name: Agregar archivos generados y hacer commit
+      run: |
+        git add generated_files/*
+        git commit -m "Subir archivos generados" || echo "No hay cambios para commit"
+
+    - name: Subir a otro repositorio
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Token de acceso para autenticarte en el otro repositorio
+      run: |
+        git remote add destino https://github.com/usuario/destino-repo.git
+        git push destino main  # Asegúrate de que esta sea la rama correcta
