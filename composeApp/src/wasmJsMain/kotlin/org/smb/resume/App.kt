@@ -11,11 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.ic_under_construction
 import org.jetbrains.compose.resources.painterResource
 import org.smb.resume.ui.theme.MyResumeTheme
+import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 
 
@@ -25,7 +25,7 @@ fun App() {
         Column(
             modifier = Modifier.fillMaxWidth().verticalScroll(state = rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(14.dp)
+            verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge)
         ) {
             Image(
                 modifier = Modifier.aspectRatio(16f / 9f),
@@ -33,7 +33,7 @@ fun App() {
                 contentDescription = null
             )
             Text(
-                text = "Under constructionnnn",
+                text = "Under construction",
                 style = Typography().labelMedium
             )
         }
