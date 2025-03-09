@@ -16,7 +16,11 @@ fun Typography() = Typography().run {
             fontWeight = FontWeight.W600,
             fontFamily = montserratFamily
         ),
-        displayMedium,
+        displayMedium = TextStyle(
+            fontSize = 54.sp,
+            fontWeight = FontWeight.W600,
+            fontFamily = montserratFamily
+        ),
         displaySmall,
         headlineLarge,
         headlineMedium,
