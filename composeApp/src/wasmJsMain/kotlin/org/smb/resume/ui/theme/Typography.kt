@@ -11,10 +11,28 @@ fun Typography() = Typography().run {
     val montserratFamily = montserratFamily()
 
     copy(
+        displayLarge = TextStyle(
+            fontSize = 56.sp,
+            fontWeight = FontWeight.W600,
+            fontFamily = montserratFamily
+        ),
+        displayMedium,
+        displaySmall,
+        headlineLarge,
+        headlineMedium,
+        headlineSmall,
+        titleLarge,
+        titleMedium,
+        titleSmall,
+        bodyLarge,
+        bodyMedium,
+        bodySmall,
+        labelLarge,
         labelMedium = TextStyle(
             fontSize = 14.sp,
             fontWeight = FontWeight.W400,
             fontFamily = montserratFamily
-        )
+        ),
+        labelSmall
     )
 }
