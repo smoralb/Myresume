@@ -3,7 +3,6 @@ package org.smb.resume.header
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -26,13 +25,13 @@ import org.smb.resume.ui.theme.Typography
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
-    Row(
+    Column(
         modifier = modifier.fillMaxWidth().verticalScroll(state = rememberScrollState()),
-        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
-        verticalAlignment = Alignment.Top
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ElevatedCard(
-            shape = Shapes.medium,
+            shape = Shapes.large,
             elevation = CardDefaults.cardElevation(defaultElevation = Elevation.elevationLarge),
             content = {
                 Image(
@@ -41,8 +40,8 @@ fun HeaderView(modifier: Modifier = Modifier) {
                 )
             }
         )
-        Column (
-            horizontalAlignment = Alignment.Start,
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
         ) {
             Text(
