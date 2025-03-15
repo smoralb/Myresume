@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CardDefaults
@@ -18,6 +19,7 @@ import myresume.composeapp.generated.resources.resume_image
 import myresume.composeapp.generated.resources.role
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.smb.resume.ui.theme.Elevation
 import org.smb.resume.ui.theme.Shapes
 import org.smb.resume.ui.theme.Spacing
@@ -26,7 +28,7 @@ import org.smb.resume.ui.theme.Typography
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier.fillMaxWidth().verticalScroll(state = rememberScrollState()),
+        modifier = modifier.fillMaxWidth().padding(all = Spacing.spacingLarge).verticalScroll(state = rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
