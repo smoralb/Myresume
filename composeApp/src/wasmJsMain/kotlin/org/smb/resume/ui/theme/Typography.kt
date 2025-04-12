@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import org.smb.resume.ui.theme.font.montserratFamily
 
 @Composable
 fun Typography() = Typography().run {
@@ -22,7 +23,11 @@ fun Typography() = Typography().run {
             fontFamily = montserratFamily
         ),
         displaySmall,
-        headlineLarge,
+        headlineLarge = TextStyle(
+            fontSize = 50.sp,
+            fontWeight = FontWeight.W600,
+            fontFamily = montserratFamily
+        ),
         headlineMedium,
         headlineSmall,
         titleLarge,

@@ -1,4 +1,4 @@
-package org.smb.resume.ui.theme
+package org.smb.resume.ui.theme.font
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontFamily
