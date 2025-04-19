@@ -16,3 +16,14 @@ We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public S
 If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 
 You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+
+HEADER
+Photo, name and role
+Animations like some logos around my head
+
+BODY
+Projects and education
+
+FOOTER
+Color -> Dark grey with elements in orange (whatsapp bubble custom)
+Contact info and social media
