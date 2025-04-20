@@ -12,13 +12,13 @@ fun Typography() = Typography().run {
 
     copy(
         displayLarge = TextStyle(
-            fontSize = 56.sp,
-            fontWeight = FontWeight.W600,
+            fontSize = 100.sp,
+            fontWeight = FontWeight.ExtraBold,
             fontFamily = montserratFamily
         ),
         displayMedium = TextStyle(
             fontSize = 54.sp,
-            fontWeight = FontWeight.W600,
+            fontWeight = FontWeight.SemiBold,
             fontFamily = montserratFamily
         ),
         displaySmall,
@@ -34,7 +34,7 @@ fun Typography() = Typography().run {
         labelLarge,
         labelMedium = TextStyle(
             fontSize = 14.sp,
-            fontWeight = FontWeight.W400,
+            fontWeight = FontWeight.Normal,
             fontFamily = montserratFamily
         ),
         labelSmall
