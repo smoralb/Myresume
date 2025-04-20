@@ -4,6 +4,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class SpacingType(
+    val spacingNone: Dp,
     val spacingExtraSmall : Dp,
     val spacingSmall : Dp,
     val spacingMedium : Dp,
@@ -12,9 +13,10 @@ data class SpacingType(
 )
 
 val Spacing = SpacingType(
-    spacingExtraSmall = 4.dp,
-    spacingSmall = 8.dp,
-    spacingMedium = 12.dp,
-    spacingLarge = 14.dp,
-    spacingExtraLarge = 16.dp
+    spacingNone = 0.dp,
+    spacingExtraSmall = 12.dp,
+    spacingSmall = 14.dp,
+    spacingMedium = 16.dp,
+    spacingLarge = 24.dp,
+    spacingExtraLarge = 42.dp
 )

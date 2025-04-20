@@ -46,7 +46,7 @@ fun FooterView(modifier: Modifier = Modifier) {
                     ) {
                         Image(
                             modifier = Modifier.size(40.dp),
-                            painter = painterResource(Res.drawable.compose_multiplatform),
+                            painter = painterResource(Res.drawable.ic_compose_multiplatform),
                             contentDescription = null
                         )
                         Text(text = stringResource(Res.string.footer_language), style = Typography().labelMedium)
