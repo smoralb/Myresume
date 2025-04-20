@@ -10,10 +10,19 @@
     <string name="multiPlatform">KMM (WIP)</string>
     <string name="swift">Swift (WIP)</string>
 
+    <!-- Content -->
+    <string name="content_talentomobile">TalentoMobile</string>
+    <string name="content_accenture">Accenture</string>
+    <string name="content_ipd">iphonedroid</string>
+    <string name="content_openbank">Openbank</string>
+    <string name="content_idealista">idealista</string>
+    <string name="content_etsisi">Universidad Politécnica de Madrid</string>
+    <string name="content_coursera">Coursera</string>
+
     <!-- Footer -->
     <string name="footer_language">Website made with Compose Multiplatform</string>
     <string name="footer_year">@2025</string>
-    <string name="footer_socials">REDES SOCIALES:</string>
+    <string name="footer_socials">SOCIAL MEDIA:</string>
     <string name="footer_socials_linkedin">LINKEDIN</string>
     <string name="footer_socials_github">GITHUB</string>
     <string name="footer_socials_medium">MEDIUM</string>
