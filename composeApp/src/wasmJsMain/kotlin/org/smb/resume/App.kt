@@ -35,7 +35,7 @@ fun App() {
                 HorizontalDivider()
                 Text("All the logos of the companies I have working on with a small description")
 
-                FooterView()
+               FooterView()
             }
         }
     }
