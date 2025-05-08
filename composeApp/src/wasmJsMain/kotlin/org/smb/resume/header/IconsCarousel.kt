@@ -40,7 +40,7 @@ fun IconsCarousel(
                 )
                 Text(
                     text = stringResource(item.label),
-                    style = Typography().labelMedium
+                    style = Typography().labelLarge
                 )
             }
         }
