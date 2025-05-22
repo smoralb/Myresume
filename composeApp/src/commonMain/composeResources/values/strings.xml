@@ -11,11 +11,68 @@
     <string name="swift">Swift (WIP)</string>
 
     <!-- Content -->
+    <string name="content_title">My experience</string>
+    <string name="content_babel">Babel</string>
+    <string name="content_babel_date">Mar 17 - Mar 18</string>
+    <string name="content_babel_role">Android developer</string>
+    <string name="content_babel_description">I have participated in the development of multiple Android projects using both Java and Kotlin.
+
+        In the main project I have been working on, I was responsible for gathering and analyzing client requirements to ensure that the final products meet their expectations.
+
+        I have managed the complete development and deployment of applications on the Play Store, ensuring a smooth experience for end users.
+
+        Additionally, I have provided technical support for applications developed on other platforms such as Windows Phone and BlackBerry.</string>
+
     <string name="content_talentomobile">TalentoMobile</string>
+    <string name="content_talentomobile_date">Mar 18 - Jun 18</string>
+    <string name="content_talentomobile_role">Android developer</string>
+    <string name="content_talentomobile_description">Actively participated in implementing the company's new architecture based on MVP, enhancing the overall project structure and maintainability.
+
+        Worked in different projects but the main project was the Android app for Chile's Santander banking app fixing issues and creating small new features.
+
+        Also worked in an OCR external library for ID recognition, designed to be integrated into any project.
+
+        Reduced app crashes and memory leaks using Fabric, enhancing the app's stability and performance.
+
+        Collaborated with remote teammates and coordinated with the Android development team using JIRA.</string>
     <string name="content_accenture">Accenture</string>
+    <string name="content_accenture_date">Jun 18 - Nov 18</string>
+    <string name="content_accenture_role">Software developer</string>
+    <string name="content_accenture_description">Taking part in the breakdown of epics into user histories with the software development team, using JIRA.
+
+        Elaborate application architecture documentation for client approval.
+
+        Additionally, I was in charge of developing a web application for internal management using Bootstrap 4, Angular 6, and TypeScript.</string>
     <string name="content_ipd">iphonedroid</string>
+    <string name="content_ipd_date">Nov 18 - Nov 19</string>
+    <string name="content_ipd_role">Android developer</string>
+    <string name="content_ipd_description">Working on multiple Android projects from different ambits from retail to beverage companies.
+
+        Principal Android developer for the long-term Leroy Merlin’s project, taking part in all the phases of the Sprint, being responsible for helping Product Owner defining acceptance criteria, participating in daily stand-ups, and establishing high-quality requirements based on the business and client needs.
+
+        Working in a multidisciplinary team consisting of iOS, web, backend and QA team.
+
+        Release new versions in AppCenter through FastLane to facilitate the QA team to check that all the acceptance criteria are met and reducing app crashes reported in realtime and track stability with Firebase Crashlytics.</string>
+
     <string name="content_openbank">Openbank</string>
+    <string name="content_openbank_date">Nov 19 - Oct 21</string>
+    <string name="content_openbank_role">Android developer</string>
+    <string name="content_openbank_description">Working in a multidisciplinary team of developers from different countries, solving technical doubts about the new architecture adopted and in charge of reviewing code and ensuring that complies with architectural and technical requirements.
+
+        Using Bitrise and SonarQube to ensure the quality of the app, getting more than 90% of the code covered by unit tests.
+
+        Additionally, we use tools that ensures the user has a good experience using the app like Firebase Crashlytics.</string>
+
     <string name="content_idealista">idealista</string>
+    <string name="content_idealista_date">Nov 22 - Today</string>
+    <string name="content_idealista_role">Apps developer</string>
+    <string name="content_idealista_description">Working as the main developer for the Android app, the app has more than 300,000 active users, with a regular crash-free rate of around 99.97% and a 4.6-star rating on the Play Store.
+
+        The app is completely developed in Kotlin, and we are migrating the project to Jetpack Compose. At this moment, the app is about 60% migrated to Compose with the objective of completing the migration by the end of this year.
+
+        With the goal of providing the best user experience, we are implementing unit testing to ensure the app is safe and tested before users interact with it. Additionally, we are using tools like Adobe Analytics to analyze user interactions and conducting A/B testing to deliver new and improved solutions to our users.
+
+        Also supporting the iOS app using Swift as programming language an UIKit for the UI.</string>
     <string name="content_etsisi">Universidad Politécnica de Madrid</string>
     <string name="content_coursera">Coursera</string>
 
