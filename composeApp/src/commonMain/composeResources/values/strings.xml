@@ -10,7 +10,7 @@
     <string name="multiPlatform">KMM (WIP)</string>
     <string name="swift">Swift (WIP)</string>
 
-    <!-- Content -->
+    <!-- Experience -->
     <string name="content_title">My experience</string>
     <string name="content_babel">Babel</string>
     <string name="content_babel_date">Mar 17 - Mar 18</string>
@@ -73,8 +73,17 @@
         With the goal of providing the best user experience, we are implementing unit testing to ensure the app is safe and tested before users interact with it. Additionally, we are using tools like Adobe Analytics to analyze user interactions and conducting A/B testing to deliver new and improved solutions to our users.
 
         Also supporting the iOS app using Swift as programming language an UIKit for the UI.</string>
+
+    <!-- Studies -->
+    <string name="content_studies_title">Studies</string>
     <string name="content_etsisi">Universidad Politécnica de Madrid</string>
+    <string name="content_etsisi_degree">Software Engineering, Software Engineering</string>
+
+    <string name="content_etsisi_app">Universidad Politécnica de Madrid</string>
+    <string name="content_etsisi_app_degree">Android App development (200hrs), Design and development of Android apps</string>
+
     <string name="content_coursera">Coursera</string>
+    <string name="content_coursera_degree">Kotlin for Java Developers by JetBrains</string>
 
     <!-- Footer -->
     <string name="footer_language">Website made with Compose Multiplatform</string>

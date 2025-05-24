@@ -1,7 +1,6 @@
 package org.smb.resume.content
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -9,18 +8,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
-import org.smb.resume.model.ExperienceUiModel
-import org.smb.resume.ui.theme.*
+import org.smb.resume.model.StudiesUiModel
+import org.smb.resume.ui.theme.Elevation
+import org.smb.resume.ui.theme.Spacing
+import org.smb.resume.ui.theme.Typography
 
 @Composable
-fun RowItem(modifier: Modifier = Modifier, item: ExperienceUiModel) {
+fun GridItemView(modifier: Modifier = Modifier, item: StudiesUiModel) {
     ElevatedCard(
-        modifier = modifier.fillMaxWidth().padding(all = Spacing.spacingLarge),
+        modifier = modifier,
         elevation = CardDefaults.cardElevation(
             defaultElevation = Elevation.elevationLarge
         ),
@@ -29,10 +28,8 @@ fun RowItem(modifier: Modifier = Modifier, item: ExperienceUiModel) {
                 item.logoUrl?.let {
                     Image(
                         modifier = Modifier
-                            .size(200.dp)
-                            .padding(all = Spacing.spacingLarge)
-                            .clip(Shapes.small)
-                            .background(color = color_inverse),
+                            .size(100.dp)
+                            .padding(all = Spacing.spacingLarge),
                         painter = painterResource(it),
                         alignment = Alignment.Center,
                         contentDescription = null,
@@ -44,20 +41,12 @@ fun RowItem(modifier: Modifier = Modifier, item: ExperienceUiModel) {
                     verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
                 ) {
                     Text(
-                        text = item.companyName,
+                        text = item.name,
                         style = Typography().titleLarge
                     )
                     Text(
-                        text = item.role,
+                        text = item.degree,
                         style = Typography().titleMedium
-                    )
-                    Text(
-                        text = item.date,
-                        style = Typography().titleSmall
-                    )
-                    Text(
-                        text = item.jobDescription,
-                        textAlign = TextAlign.Start
                     )
                 }
             }

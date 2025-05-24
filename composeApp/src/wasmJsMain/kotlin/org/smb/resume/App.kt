@@ -3,53 +3,74 @@ package org.smb.resume
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import org.smb.resume.content.GridItemView
 import org.smb.resume.content.RowItem
 import org.smb.resume.footer.FooterView
 import org.smb.resume.header.HeaderView
 import org.smb.resume.model.ExperienceUiModel
+import org.smb.resume.model.StudiesUiModel
 import org.smb.resume.ui.theme.MyResumeTheme
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun App() {
     MyResumeTheme {
-        Scaffold {
-            Box {
+        Scaffold(
+            content = { contentPadding ->
                 Column(
                     modifier = Modifier
+                        .padding(paddingValues = contentPadding)
                         .verticalScroll(state = rememberScrollState()),
-                    horizontalAlignment = Alignment.Start,
                     verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
                 ) {
-                    HeaderView(
-                        modifier = Modifier.padding(all = Spacing.spacingExtraLarge)
-                    )
-                    Text(
-                        text = stringResource(Res.string.content_title),
-                        style = Typography().displayMedium
-                    )
-
                     Column(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+                        modifier = Modifier
+                            .padding(horizontal = Spacing.spacingLarge)
                     ) {
-                        getExperiences().forEach { item ->
-                            RowItem(item = item)
+                        HeaderView(
+                            modifier = Modifier.padding(all = Spacing.spacingExtraLarge)
+                        )
+                        Text(
+                            text = stringResource(Res.string.content_title),
+                            style = Typography().displayMedium
+                        )
+
+                        getExperiences().forEach { experienceItem ->
+                            RowItem(item = experienceItem)
+                        }
+                        HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(horizontal = Spacing.spacingLarge))
+                        Text(
+                            text = stringResource(Res.string.content_studies_title),
+                            style = Typography().displayMedium
+                        )
+                        FlowRow(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
+                            verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
+                            maxItemsInEachRow = 2
+                        ) {
+                            getStudies().forEach { studyItem ->
+                                GridItemView(
+                                    modifier = Modifier.weight(1f).height(IntrinsicSize.Max),
+                                    item = studyItem
+                                )
+                            }
                         }
                     }
                     FooterView()
                 }
             }
-        }
+        )
     }
 }
 
@@ -96,6 +117,22 @@ private fun getExperiences(): List<ExperienceUiModel> {
             date = stringResource(Res.string.content_babel_date),
             role = stringResource(Res.string.content_babel_role),
             jobDescription = stringResource(Res.string.content_babel_description)
+        )
+    )
+}
+
+@Composable
+fun getStudies(): List<StudiesUiModel> {
+    return listOf(
+        StudiesUiModel(
+            logoUrl = Res.drawable.ic_etsisi,
+            name = stringResource(Res.string.content_etsisi_app),
+            degree = stringResource(Res.string.content_etsisi_app_degree)
+        ),
+        StudiesUiModel(
+            logoUrl = Res.drawable.ic_coursera,
+            name = stringResource(Res.string.content_coursera),
+            degree = stringResource(Res.string.content_coursera_degree)
         )
     )
 }
