@@ -48,7 +48,13 @@ fun App() {
                         getExperiences().forEach { experienceItem ->
                             RowItem(item = experienceItem)
                         }
-                        HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(horizontal = Spacing.spacingLarge))
+                        HorizontalDivider(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(
+                                    horizontal = Spacing.spacingLarge,
+                                    vertical = Spacing.spacingLarge
+                                )
+                        )
                         Text(
                             text = stringResource(Res.string.content_studies_title),
                             style = Typography().displayMedium
