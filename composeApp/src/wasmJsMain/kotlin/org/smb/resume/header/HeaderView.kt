@@ -23,43 +23,13 @@ import org.smb.resume.ui.theme.Typography
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
 
-    /**
-     * This will be placed in the ViewModel
-     */
-    val items = listOf(
-        IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_android,
-            label = Res.string.android
-        ),
-        IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_apple,
-            label = Res.string.ios
-        ),
-        IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_compose_multiplatform,
-            label = Res.string.multiPlatform
-        ),
-        IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_kotlin,
-            label = Res.string.kotlin
-        ),
-        IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_java,
-            label = Res.string.java
-        ),
-        IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_swift,
-            label = Res.string.swift
-        ),
-    )
-
     Row(
         modifier = modifier.height(IntrinsicSize.Max),
         horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
         verticalAlignment = Alignment.CenterVertically
     ) {
         NameSection(modifier = Modifier.weight(weight = 1f))
-        PhotoSection(modifier = Modifier.weight(weight = 1f), skills = items)
+        PhotoSection(modifier = Modifier.weight(weight = 1f), skills = getSkills())
     }
 }
 
@@ -128,4 +98,34 @@ private fun PhotoSection(modifier: Modifier = Modifier, skills: List<IconsCarous
             )
         }
     }
+}
+
+@Composable
+fun getSkills(): List<IconsCarouselUiModel> {
+    return listOf(
+        IconsCarouselUiModel(
+            iconReference = Res.drawable.ic_android,
+            label = Res.string.android
+        ),
+        IconsCarouselUiModel(
+            iconReference = Res.drawable.ic_apple,
+            label = Res.string.ios
+        ),
+        IconsCarouselUiModel(
+            iconReference = Res.drawable.ic_compose_multiplatform,
+            label = Res.string.multiPlatform
+        ),
+        IconsCarouselUiModel(
+            iconReference = Res.drawable.ic_kotlin,
+            label = Res.string.kotlin
+        ),
+        IconsCarouselUiModel(
+            iconReference = Res.drawable.ic_java,
+            label = Res.string.java
+        ),
+        IconsCarouselUiModel(
+            iconReference = Res.drawable.ic_swift,
+            label = Res.string.swift
+        ),
+    )
 }
