@@ -1,6 +1,7 @@
 package org.smb.resume.header
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.LocationOn
@@ -10,21 +11,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import org.smb.resume.ui.theme.Elevation
-import org.smb.resume.ui.theme.Shapes
-import org.smb.resume.ui.theme.Spacing
-import org.smb.resume.ui.theme.Typography
+import org.smb.resume.ui.theme.*
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
-
     Row(
-        modifier = modifier.height(IntrinsicSize.Max),
+        modifier = modifier.height(IntrinsicSize.Max).padding(
+            vertical = Spacing.spacingMedium,
+            horizontal = Spacing.spacingLarge
+        ),
         horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
         verticalAlignment = Alignment.CenterVertically
     ) {

@@ -18,22 +18,16 @@ import org.smb.resume.ui.theme.Spacing
 @Composable
 fun App() {
     MyResumeTheme {
-        Scaffold(
-            content = { contentPadding ->
-                Column(
-                    modifier = Modifier
-                        .padding(paddingValues = contentPadding)
-                        .verticalScroll(state = rememberScrollState()),
-                    verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
-                ) {
-                    HeaderView(
-                        modifier = Modifier.padding(horizontal = Spacing.spacingExtraLarge)
-                    )
-                    ContentView(
-                        modifier = Modifier.padding(horizontal = Spacing.spacingExtraLarge))
-                    FooterView()
-                }
-            }
-        )
+        Column(
+            modifier = Modifier
+                .verticalScroll(state = rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+        ) {
+            HeaderView()
+            ContentView(
+                modifier = Modifier.padding(horizontal = Spacing.spacingExtraLarge)
+            )
+            FooterView()
+        }
     }
 }

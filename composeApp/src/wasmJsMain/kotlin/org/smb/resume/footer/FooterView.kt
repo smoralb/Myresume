@@ -18,13 +18,13 @@ fun FooterView(modifier: Modifier = Modifier) {
     Surface(
         modifier = modifier.fillMaxWidth().padding(top = Spacing.spacingLarge),
         shadowElevation = Elevation.elevationLarge,
-        color = color_container_primary,
+        color = color_inverse,
         contentColor = color_inverse
     ) {
         Column(modifier = Modifier.padding(all = Spacing.spacingLarge)) {
             Text(
                 text = stringResource(Res.string.name),
-                color = color_content_primary,
+                color = color_accent,
                 style = Typography().displayLarge
             )
 
