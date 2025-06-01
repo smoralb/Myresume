@@ -9,6 +9,8 @@ import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.model.ExperienceUiModel
 import org.smb.resume.model.StudiesUiModel
+import org.smb.resume.ui.components.GridItemView
+import org.smb.resume.ui.components.RowItem
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 

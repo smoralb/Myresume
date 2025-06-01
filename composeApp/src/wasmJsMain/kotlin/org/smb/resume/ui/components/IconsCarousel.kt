@@ -1,4 +1,4 @@
-package org.smb.resume.header
+package org.smb.resume.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.MarqueeSpacing

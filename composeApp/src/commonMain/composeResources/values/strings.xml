@@ -1,6 +1,6 @@
 <resources>
     <!-- Header -->
-    <string name="name">Sergio Moral Bermúdez</string>
+    <string name="name">Sergio \nMoral \nBermúdez</string>
     <string name="role">Android developer</string>
     <string name="location">Madrid, Spain</string>
     <string name="android">Android</string>

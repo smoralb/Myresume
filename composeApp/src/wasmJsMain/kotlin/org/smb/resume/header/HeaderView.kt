@@ -1,37 +1,36 @@
 package org.smb.resume.header
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.LocationOn
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.*
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import org.smb.resume.ui.theme.*
+import org.smb.resume.ui.components.IconsCarousel
+import org.smb.resume.ui.components.IconsCarouselUiModel
+import org.smb.resume.ui.fonts.spaceMonoFont
+import org.smb.resume.ui.theme.Spacing
+import org.smb.resume.ui.theme.Typography
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier.height(IntrinsicSize.Max).padding(
-            vertical = Spacing.spacingMedium,
-            horizontal = Spacing.spacingLarge
-        ),
-        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        NameSection(modifier = Modifier.weight(weight = 1f))
-        PhotoSection(modifier = Modifier.weight(weight = 1f), skills = getSkills())
+    Box {
+
+        Row(
+            modifier = modifier.height(IntrinsicSize.Max).padding(
+                vertical = Spacing.spacingMedium,
+                horizontal = Spacing.spacingLarge
+            ),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            NameSection(modifier = Modifier.weight(weight = 1f))
+            PhotoSection(modifier = Modifier.weight(weight = 1f), skills = getSkills())
+        }
     }
 }
 
@@ -43,20 +42,22 @@ private fun NameSection(modifier: Modifier = Modifier) {
     ) {
         Text(
             text = stringResource(Res.string.name),
-            style = Typography().displayLarge
+            style = Typography().displayLarge,
+            fontFamily = spaceMonoFont()
         )
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
         ) {
-            Image(
-                modifier = Modifier.size(40.dp),
-                painter = painterResource(Res.drawable.ic_android),
-                contentDescription = null
+            Text(
+                text = "\\",
+                style = Typography().headlineLarge,
+                fontFamily = spaceMonoFont()
             )
             Text(
                 text = stringResource(Res.string.role),
-                style = Typography().headlineLarge
+                style = Typography().headlineLarge,
+                fontFamily = spaceMonoFont()
             )
         }
     }
@@ -72,19 +73,6 @@ private fun PhotoSection(modifier: Modifier = Modifier, skills: List<IconsCarous
         IconsCarousel(
             modifier = Modifier,
             carouselItems = skills
-        )
-        ElevatedCard(
-            modifier = Modifier.widthIn(max = 800.dp).aspectRatio(ratio = 1f),
-            shape = Shapes.large,
-            elevation = CardDefaults.cardElevation(defaultElevation = Elevation.elevationLarge),
-            content = {
-                Image(
-                    modifier = Modifier.fillMaxSize(),
-                    painter = painterResource(resource = Res.drawable.resume_image),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop
-                )
-            }
         )
         Row(
             verticalAlignment = Alignment.Bottom,
