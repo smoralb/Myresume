@@ -33,10 +33,7 @@ fun FooterView(modifier: Modifier = Modifier) {
                     verticalAlignment = Alignment.Bottom,
                     horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
                 ) {
-                    Text(text = stringResource(Res.string.footer_socials), style = Typography().labelMedium)
-                    Text(text = stringResource(Res.string.footer_socials_linkedin), style = Typography().labelMedium)
-                    Text(text = stringResource(Res.string.footer_socials_github), style = Typography().labelMedium)
-                    Text(text = stringResource(Res.string.footer_socials_medium), style = Typography().labelMedium)
+
                 }
                 Spacer(modifier = Modifier.weight(1f))
                 Column {

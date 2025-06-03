@@ -1,36 +1,35 @@
 package org.smb.resume.header
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextDecoration
+import kotlinx.browser.window
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
-import org.smb.resume.ui.components.IconsCarousel
 import org.smb.resume.ui.components.IconsCarouselUiModel
 import org.smb.resume.ui.fonts.spaceMonoFont
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
+import org.smb.resume.ui.theme.color_inverse
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
-    Box {
-
-        Row(
-            modifier = modifier.height(IntrinsicSize.Max).padding(
-                vertical = Spacing.spacingMedium,
-                horizontal = Spacing.spacingLarge
-            ),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            NameSection(modifier = Modifier.weight(weight = 1f))
-            PhotoSection(modifier = Modifier.weight(weight = 1f), skills = getSkills())
-        }
+    Row(
+        modifier = modifier.height(IntrinsicSize.Max).padding(
+            vertical = Spacing.spacingMedium,
+            horizontal = Spacing.spacingLarge
+        ),
+        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        NameSection(modifier = Modifier.weight(weight = 1f).fillMaxHeight())
+        ContactSection(modifier = Modifier.weight(weight = 1f).fillMaxHeight())
     }
 }
 
@@ -46,48 +45,70 @@ private fun NameSection(modifier: Modifier = Modifier) {
             fontFamily = spaceMonoFont()
         )
         Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+            modifier = Modifier
+                .drawBehind { drawRect(color = Color.Black) }
+                .padding(vertical = Spacing.spacingSmall, horizontal = Spacing.spacingMedium),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraSmall)
         ) {
             Text(
                 text = "\\",
                 style = Typography().headlineLarge,
-                fontFamily = spaceMonoFont()
+                fontFamily = spaceMonoFont(),
+                color = Color.Green
             )
             Text(
                 text = stringResource(Res.string.role),
                 style = Typography().headlineLarge,
-                fontFamily = spaceMonoFont()
+                fontFamily = spaceMonoFont(),
+                color = color_inverse
             )
         }
     }
 }
 
 @Composable
-private fun PhotoSection(modifier: Modifier = Modifier, skills: List<IconsCarouselUiModel>) {
-    Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        IconsCarousel(
-            modifier = Modifier,
-            carouselItems = skills
-        )
-        Row(
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
-        ) {
-            Image(
-                imageVector = Icons.Outlined.LocationOn,
-                contentDescription = null
+private fun ContactSection(modifier: Modifier = Modifier) {
+    Box(modifier = modifier) {
+        Column(
+            modifier = Modifier.align(Alignment.TopEnd).padding(
+                horizontal = Spacing.spacingExtraLarge,
+                vertical = Spacing.spacingExtraLarge
             )
+                .drawBehind {
+                    drawRect(color = color_inverse)
+                }
+        ) {
             Text(
-                text = stringResource(Res.string.location),
-                style = Typography().bodyMedium
+                modifier = Modifier.padding(vertical = Spacing.spacingMedium),
+                text = stringResource(Res.string.contact_socials),
+                style = Typography().headlineMedium
+            )
+            ContactText(
+                text = stringResource(Res.string.contact_socials_linkedin),
+                url = "https://www.linkedin.com/in/sergiomoralbermudez/"
+            )
+            ContactText(
+                text = stringResource(Res.string.contact_socials_github),
+                url = "https://github.com/smoralb"
+            )
+            ContactText(
+                text = stringResource(Res.string.contact_socials_medium),
+                url = "https://medium.com/@smoralber"
             )
         }
     }
+}
+
+@Composable
+fun ContactText(modifier: Modifier = Modifier, text: String, url: String) {
+    Text(
+        modifier = modifier.clickable {
+            window.open(url = url)
+        }.padding(start = Spacing.spacingSmall),
+        text = text,
+        style = Typography().headlineSmall,
+        textDecoration = TextDecoration.Underline
+    )
 }
 
 @Composable
