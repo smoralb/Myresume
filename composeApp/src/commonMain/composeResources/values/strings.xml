@@ -90,7 +90,7 @@
     <string name="footer_year">@2025</string>
 
     <!-- Contact -->
-    <string name="contact_socials">CONTACT:</string>
+    <string name="contact_socials">ME</string>
     <string name="contact_socials_linkedin">LINKEDIN</string>
     <string name="contact_socials_github">GITHUB</string>
     <string name="contact_socials_medium">MEDIUM</string>

@@ -1,7 +1,10 @@
 package org.smb.resume.header
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -9,26 +12,30 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
 import myresume.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.components.IconsCarouselUiModel
 import org.smb.resume.ui.fonts.spaceMonoFont
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_inverse
+import org.smb.resume.ui.theme.color_tomato
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.height(IntrinsicSize.Max).padding(
-            vertical = Spacing.spacingMedium,
+        modifier = modifier.fillMaxSize().padding(
             horizontal = Spacing.spacingLarge
         ),
         horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        NameSection(modifier = Modifier.weight(weight = 1f).fillMaxHeight())
+        NameSection(
+            modifier = Modifier.weight(weight = 1f).align(alignment = Alignment.CenterVertically)
+        )
         ContactSection(modifier = Modifier.weight(weight = 1f).fillMaxHeight())
     }
 }
@@ -36,7 +43,7 @@ fun HeaderView(modifier: Modifier = Modifier) {
 @Composable
 private fun NameSection(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier,
+        modifier = modifier.padding(top = Spacing.spacingMedium),
         verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
     ) {
         Text(
@@ -70,19 +77,30 @@ private fun NameSection(modifier: Modifier = Modifier) {
 private fun ContactSection(modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         Column(
-            modifier = Modifier.align(Alignment.TopEnd).padding(
-                horizontal = Spacing.spacingExtraLarge,
-                vertical = Spacing.spacingExtraLarge
-            )
-                .drawBehind {
-                    drawRect(color = color_inverse)
-                }
+            modifier = Modifier.align(Alignment.TopEnd)
+                .background(
+                    color = color_tomato,
+                    shape = RoundedCornerShape(bottomStart = 8.dp, bottomEnd = 8.dp)
+                )
+                .padding(horizontal = Spacing.spacingExtraLarge)
+                .padding(bottom = Spacing.spacingExtraLarge)
         ) {
-            Text(
+            Row(
                 modifier = Modifier.padding(vertical = Spacing.spacingMedium),
-                text = stringResource(Res.string.contact_socials),
-                style = Typography().headlineMedium
-            )
+                horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(Res.string.contact_socials),
+                    style = Typography().headlineMedium,
+                    color = color_inverse
+                )
+                Image(
+                    modifier = Modifier.size(80.dp),
+                    painter = painterResource(Res.drawable.ic_old_pc),
+                    contentDescription = null
+                )
+            }
             ContactText(
                 text = stringResource(Res.string.contact_socials_linkedin),
                 url = "https://www.linkedin.com/in/sergiomoralbermudez/"
@@ -107,7 +125,8 @@ fun ContactText(modifier: Modifier = Modifier, text: String, url: String) {
         }.padding(start = Spacing.spacingSmall),
         text = text,
         style = Typography().headlineSmall,
-        textDecoration = TextDecoration.Underline
+        textDecoration = TextDecoration.Underline,
+        color = color_inverse
     )
 }
 
