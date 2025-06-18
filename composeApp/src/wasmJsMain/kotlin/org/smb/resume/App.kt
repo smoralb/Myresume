@@ -21,7 +21,6 @@ import org.smb.resume.ui.theme.MyResumeTheme
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.color_inverse
 
-
 @Composable
 fun App() {
     MyResumeTheme {

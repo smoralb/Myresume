@@ -19,22 +19,23 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.components.IconsCarouselUiModel
 import org.smb.resume.ui.fonts.spaceMonoFont
-import org.smb.resume.ui.theme.Spacing
-import org.smb.resume.ui.theme.Typography
-import org.smb.resume.ui.theme.color_inverse
-import org.smb.resume.ui.theme.color_tomato
+import org.smb.resume.ui.theme.*
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.fillMaxSize().padding(
-            horizontal = Spacing.spacingLarge
-        ),
+        modifier = modifier.fillMaxSize()
+            .padding(horizontal = Spacing.spacingLarge),
         horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
         verticalAlignment = Alignment.CenterVertically
     ) {
         NameSection(
-            modifier = Modifier.weight(weight = 1f).align(alignment = Alignment.CenterVertically)
+            modifier = Modifier.weight(weight = 2f)
+        )
+        Image(
+            modifier = Modifier.weight(weight = 1f),
+            painter = painterResource(Res.drawable.ic_programming),
+            contentDescription = null
         )
         ContactSection(modifier = Modifier.weight(weight = 1f).fillMaxHeight())
     }

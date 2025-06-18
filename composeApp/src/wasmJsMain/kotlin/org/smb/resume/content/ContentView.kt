@@ -19,6 +19,7 @@ import org.smb.resume.ui.theme.Typography
 fun ContentView(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Text(
+            modifier = Modifier.padding(vertical = Spacing.spacingExtraLarge),
             text = stringResource(Res.string.content_title),
             style = Typography().displayMedium
         )
