@@ -3,6 +3,8 @@
     <string name="name">Sergio \nMoral \nBermúdez</string>
     <string name="role">Android developer</string>
     <string name="location">Madrid, Spain</string>
+
+    <!-- Skills -->
     <string name="android">Android</string>
     <string name="ios">iOS (WIP)</string>
     <string name="kotlin">Kotlin</string>
@@ -11,7 +13,7 @@
     <string name="swift">Swift (WIP)</string>
 
     <!-- Experience -->
-    <string name="content_title">My experience</string>
+    <string name="content_title">- My experience -</string>
     <string name="content_babel">Babel</string>
     <string name="content_babel_date">Mar 17 - Mar 18</string>
     <string name="content_babel_role">Android developer</string>

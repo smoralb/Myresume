@@ -23,7 +23,6 @@ fun ContentView(modifier: Modifier = Modifier) {
             text = stringResource(Res.string.content_title),
             style = Typography().displayMedium
         )
-
         getExperiences().forEach { experienceItem ->
             RowItem(item = experienceItem)
         }

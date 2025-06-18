@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
+import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,10 +21,14 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.components.IconsCarouselUiModel
 import org.smb.resume.ui.fonts.spaceMonoFont
-import org.smb.resume.ui.theme.*
+import org.smb.resume.ui.theme.Spacing
+import org.smb.resume.ui.theme.Typography
+import org.smb.resume.ui.theme.color_inverse
+import org.smb.resume.ui.theme.color_tomato
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
+
     Row(
         modifier = modifier.fillMaxSize()
             .padding(horizontal = Spacing.spacingLarge),
@@ -41,6 +47,7 @@ fun HeaderView(modifier: Modifier = Modifier) {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun NameSection(modifier: Modifier = Modifier) {
     Column(
@@ -70,6 +77,29 @@ private fun NameSection(modifier: Modifier = Modifier) {
                 fontFamily = spaceMonoFont(),
                 color = color_inverse
             )
+        }
+        FlowRow(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
+            verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
+        ) {
+            getSkills().forEach {
+                SuggestionChip(
+                    onClick = {},
+                    label = {
+                        Text(
+                            text = stringResource(it.label)
+                        )
+                    },
+                    icon = {
+                        Icon(
+                            modifier = Modifier.size(12.dp),
+                            painter = painterResource(resource = it.iconReference),
+                            contentDescription = null
+                        )
+                    }
+                )
+            }
         }
     }
 }
