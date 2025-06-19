@@ -2,7 +2,6 @@ package org.smb.resume.content
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,39 +15,46 @@ import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_mindaro
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ContentView(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.padding(vertical = Spacing.spacingLarge)) {
-        Text(
-            modifier = Modifier.background(color = color_mindaro).padding(vertical = Spacing.spacingLarge),
-            text = stringResource(Res.string.content_title),
-            style = Typography().displayMedium
-        )
+    Column(
+        modifier = modifier.padding(vertical = Spacing.spacingLarge),
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge)
+    ) {
+        ExperienceSection()
+        StudiesSection()
+    }
+}
 
-        getExperiences().forEach { experienceItem ->
-            RowItem(item = experienceItem)
-        }
-        HorizontalDivider(
-            modifier = Modifier.fillMaxWidth().padding(
-                horizontal = Spacing.spacingLarge, vertical = Spacing.spacingLarge
+@Composable
+private fun StudiesSection() {
+    Text(
+        modifier = Modifier.background(color = color_mindaro).padding(vertical = Spacing.spacingLarge),
+        text = stringResource(Res.string.content_studies_title),
+        style = Typography().displayMedium
+    )
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(vertical = Spacing.spacingLarge).height(IntrinsicSize.Max),
+        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+    ) {
+        getStudies().forEach { studyItem ->
+            GridItemView(
+                modifier = Modifier.weight(1f).fillMaxHeight(), item = studyItem
             )
-        )
-        Text(
-            text = stringResource(Res.string.content_studies_title), style = Typography().displayMedium
-        )
-        FlowRow(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
-            verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
-            maxItemsInEachRow = 2
-        ) {
-            getStudies().forEach { studyItem ->
-                GridItemView(
-                    modifier = Modifier.weight(1f).height(IntrinsicSize.Max), item = studyItem
-                )
-            }
         }
+    }
+}
+
+@Composable
+private fun ExperienceSection() {
+    Text(
+        modifier = Modifier.background(color = color_mindaro).padding(vertical = Spacing.spacingLarge),
+        text = stringResource(Res.string.content_title),
+        style = Typography().displayMedium
+    )
+
+    getExperiences().forEach { experienceItem ->
+        RowItem(item = experienceItem)
     }
 }
 
@@ -86,6 +92,7 @@ private fun getExperiences(): List<ExperienceUiModel> {
             role = stringResource(Res.string.content_talentomobile_role),
             jobDescription = stringResource(Res.string.content_talentomobile_description)
         ), ExperienceUiModel(
+            logoUrl = Res.drawable.ic_babel,
             companyName = stringResource(Res.string.content_babel),
             date = stringResource(Res.string.content_babel_date),
             role = stringResource(Res.string.content_babel_role),

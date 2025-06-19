@@ -15,6 +15,7 @@ import org.smb.resume.model.StudiesUiModel
 import org.smb.resume.ui.theme.Elevation
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
+import org.smb.resume.ui.theme.color_inverse
 
 @Composable
 fun GridItemView(modifier: Modifier = Modifier, item: StudiesUiModel) {
@@ -23,8 +24,11 @@ fun GridItemView(modifier: Modifier = Modifier, item: StudiesUiModel) {
         elevation = CardDefaults.cardElevation(
             defaultElevation = Elevation.elevationLarge
         ),
+        colors = CardDefaults.elevatedCardColors(
+            containerColor = color_inverse
+        ),
         content = {
-            Row {
+            Row (modifier = Modifier.height(IntrinsicSize.Max)) {
                 item.logoUrl?.let {
                     Image(
                         modifier = Modifier

@@ -32,7 +32,7 @@ fun RowItem(modifier: Modifier = Modifier, item: ExperienceUiModel) {
     ElevatedCard(
         modifier = modifier
             .fillMaxWidth()
-            .padding(all = Spacing.spacingLarge)
+            .padding(all = Spacing.spacingSmall)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null
