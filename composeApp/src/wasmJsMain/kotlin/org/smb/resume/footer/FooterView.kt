@@ -24,8 +24,12 @@ fun FooterView(modifier: Modifier = Modifier) {
         color = color_grey,
         contentColor = color_inverse
     ) {
-        Column {
+        Column(
+            modifier = Modifier.fillMaxWidth()
+                .padding(vertical = Spacing.spacingLarge, horizontal = Spacing.spacingMedium)
+        ) {
             Row(
+                modifier = Modifier.align(Alignment.End),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
             ) {
