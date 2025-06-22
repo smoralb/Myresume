@@ -28,23 +28,21 @@ import org.smb.resume.ui.theme.color_tomato
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
-    Box {
-        Row(
-            modifier = modifier.fillMaxSize()
-                .padding(horizontal = Spacing.spacingLarge),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            NameSection(
-                modifier = Modifier.weight(weight = 1f)
-            )
-            Image(
-                modifier = Modifier.weight(weight = 1f),
-                painter = painterResource(Res.drawable.ic_programming),
-                contentDescription = null
-            )
-        }
-        ContactSection(modifier = Modifier.align(Alignment.TopEnd).padding(end = Spacing.spacingLarge))
+    Row(
+        modifier = modifier.fillMaxSize()
+            .padding(horizontal = Spacing.spacingLarge),
+        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        NameSection(
+            modifier = Modifier.weight(weight = 1f)
+        )
+        Image(
+            modifier = Modifier.weight(weight = 1f),
+            painter = painterResource(Res.drawable.ic_programming),
+            contentDescription = null
+        )
+        ContactSection(modifier = Modifier.weight(weight = 1f).padding(end = Spacing.spacingLarge))
     }
 }
 
