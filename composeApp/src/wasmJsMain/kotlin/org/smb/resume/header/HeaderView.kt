@@ -21,28 +21,31 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.components.IconsCarouselUiModel
 import org.smb.resume.ui.fonts.spaceMonoFont
-import org.smb.resume.ui.theme.Spacing
-import org.smb.resume.ui.theme.Typography
-import org.smb.resume.ui.theme.color_inverse
-import org.smb.resume.ui.theme.color_tomato
+import org.smb.resume.ui.theme.*
 
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.fillMaxSize()
-            .padding(horizontal = Spacing.spacingLarge),
-        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraLarge),
-        verticalAlignment = Alignment.CenterVertically
+            .padding(horizontal = Spacing.spacingLarge)
     ) {
         NameSection(
-            modifier = Modifier.weight(weight = 1f)
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+                .weight(weight = 1f)
         )
-        Image(
-            modifier = Modifier.weight(weight = 1f),
-            painter = painterResource(Res.drawable.ic_programming),
-            contentDescription = null
-        )
-        ContactSection(modifier = Modifier.weight(weight = 1f).padding(end = Spacing.spacingLarge))
+        Box(
+            modifier = Modifier
+                .weight(weight = 2f)
+                .fillMaxHeight()
+        ) {
+            Image(
+                modifier = Modifier.align(Alignment.BottomCenter),
+                painter = painterResource(Res.drawable.ic_programming),
+                contentDescription = null
+            )
+            ContactSection(modifier = Modifier.align(Alignment.TopEnd).padding(end = Spacing.spacingLarge))
+        }
     }
 }
 
@@ -50,7 +53,7 @@ fun HeaderView(modifier: Modifier = Modifier) {
 @Composable
 private fun NameSection(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier.padding(top = Spacing.spacingMedium),
+        modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
     ) {
         Text(
