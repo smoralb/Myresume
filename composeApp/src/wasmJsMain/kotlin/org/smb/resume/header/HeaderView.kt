@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
@@ -15,6 +17,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.browser.window
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
@@ -56,10 +59,13 @@ private fun NameSection(modifier: Modifier = Modifier) {
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
     ) {
-        Text(
+        BasicText(
             text = stringResource(Res.string.name),
-            style = Typography().displayLarge,
-            fontFamily = spaceMonoFont()
+            autoSize = TextAutoSize.StepBased(
+                minFontSize = Typography().labelLarge.fontSize,
+                maxFontSize = Typography().displayLarge.fontSize,
+                stepSize = 0.5.sp
+            )
         )
         Row(
             modifier = Modifier

@@ -14,6 +14,7 @@ import kotlinx.browser.window
 import org.smb.resume.content.ContentView
 import org.smb.resume.footer.FooterView
 import org.smb.resume.header.HeaderView
+import org.smb.resume.ui.extensions.parallaxLayoutModifier
 import org.smb.resume.ui.theme.MyResumeTheme
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.color_inverse
@@ -31,9 +32,9 @@ fun App() {
             content = {
                 Column(
                     modifier = Modifier
-                        .verticalScroll(state = scrollState) // Permite desplazamiento vertical
-                        .padding(horizontal = Spacing.spacingMedium), // Espaciado horizontal
-                    verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium) // Espaciado entre elementos
+                        .verticalScroll(state = scrollState)
+                        .padding(horizontal = Spacing.spacingMedium),
+                    verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
                 ) {
                     // Calculamos la altura en DP para el HeaderView
                     val headerHeight = (screenSize.value.second / window.devicePixelRatio).toInt().dp
@@ -41,7 +42,7 @@ fun App() {
                     HeaderView(
                         modifier = Modifier
                             .height(headerHeight) // Asignamos la altura calculada al HeaderView
-                        //.parallaxLayoutModifier(scrollState = scrollState, 2) // Si quieres el efecto de parallax
+                            .parallaxLayoutModifier(scrollState = scrollState, 2) // Si quieres el efecto de parallax
                     )
                     ContentView(
                         modifier = Modifier
