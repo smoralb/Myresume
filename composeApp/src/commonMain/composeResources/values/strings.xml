@@ -13,10 +13,11 @@
     <string name="swift">Swift (WIP)</string>
 
     <!-- Experience -->
+    <string name="content_timeline_present">Present</string>
+    <string name="content_timeline_start">Start</string>
     <string name="content_scope">Scope:</string>
     <string name="content_tech">Technologies:</string>
     <string name="content_contributions">Key Contributions:</string>
-
     <string name="content_title">- My experience -</string>
     <string name="content_babel">Babel</string>
     <string name="content_babel_date">Mar 17 - Mar 18</string>

@@ -23,11 +23,9 @@ import org.smb.resume.ui.theme.color_inverse
 fun App() {
     MyResumeTheme {
 
-        // Mantener la referencia al tamaño de la pantalla
         val screenSize = remember { mutableStateOf(Pair(-1, -1)) }
         val scrollState = rememberScrollState()
 
-        // Layout con una columna scrollable
         Layout(
             content = {
                 Column(
@@ -36,13 +34,12 @@ fun App() {
                         .padding(horizontal = Spacing.spacingMedium),
                     verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
                 ) {
-                    // Calculamos la altura en DP para el HeaderView
                     val headerHeight = (screenSize.value.second / window.devicePixelRatio).toInt().dp
 
                     HeaderView(
                         modifier = Modifier
-                            .height(headerHeight) // Asignamos la altura calculada al HeaderView
-                            .parallaxLayoutModifier(scrollState = scrollState, 2) // Si quieres el efecto de parallax
+                            .height(headerHeight)
+                            .parallaxLayoutModifier(scrollState = scrollState, 2)
                     )
                     ContentView(
                         modifier = Modifier
@@ -56,12 +53,8 @@ fun App() {
                 val width = constraints.maxWidth
                 val height = constraints.maxHeight
 
-                // Asignando el tamaño de pantalla calculado (tamaño total)
                 screenSize.value = Pair(width, height)
 
-                println("Width: $width, Height: $height")
-
-                // Medir y colocar los elementos hijos
                 val placeables = measurables.map { measurable ->
                     measurable.measure(constraints)
                 }

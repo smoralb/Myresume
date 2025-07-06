@@ -67,12 +67,12 @@ private fun ExperienceSection() {
     Column {
         Row {
             Text(
-                text = "Present",
+                text = stringResource(Res.string.content_timeline_present),
                 style = Typography().labelLarge
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = "Start",
+                text = stringResource(Res.string.content_timeline_start),
                 style = Typography().labelLarge
             )
         }
@@ -103,24 +103,23 @@ private fun ExperienceSection() {
                         painter = painterResource(experienceUiModel.logoUrl),
                         alignment = Alignment.Center,
                         contentDescription = null,
-                        contentScale = ContentScale.Fit
+                        contentScale = ContentScale.Inside
                     )
                 }
             }
         }
 
         experiences[indexToShow.value].jobDescription.forEach {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
-            ) {
+            Column {
                 Text(
+                    modifier = Modifier.padding(vertical = Spacing.spacingSmall),
                     text = it.title,
-                    style = Typography().titleMedium,
+                    style = Typography().titleLarge,
                     fontWeight = FontWeight.SemiBold
                 )
                 Text(
                     text = it.description,
-                    style = Typography().labelLarge
+                    style = Typography().bodyMedium
                 )
             }
         }
