@@ -26,12 +26,12 @@ import org.smb.resume.ui.theme.*
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.fillMaxSize()
-            .padding(horizontal = Spacing.spacingLarge)
+        modifier = modifier
+            .padding(horizontal = Spacing.spacingLarge),
+        verticalAlignment = Alignment.Top
     ) {
         NameSection(
             modifier = Modifier
-                .align(Alignment.CenterVertically)
                 .weight(weight = 1f)
         )
         Box(
@@ -40,7 +40,7 @@ fun HeaderView(modifier: Modifier = Modifier) {
                 .fillMaxHeight()
         ) {
             Image(
-                modifier = Modifier.align(Alignment.BottomCenter),
+                modifier = Modifier.align(Alignment.BottomStart),
                 painter = painterResource(Res.drawable.ic_programming),
                 contentDescription = null
             )
