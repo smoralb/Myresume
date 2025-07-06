@@ -7,10 +7,20 @@ data class ExperienceUiModel(
     val companyName: String,
     val date: String,
     val role: String,
-    val jobDescription: List<JobDescription>
+    val jobDescription: List<BaseJobDescription>
+)
+
+open class BaseJobDescription(
+    open val title: String,
+    open val description: String
 )
 
 data class JobDescription(
-    val title: String,
-    val description: String
-)
+    override val title: String,
+    override val description: String
+): BaseJobDescription (title, description)
+
+data class TechDescription(
+    override val title: String,
+    override val description: String
+): BaseJobDescription (title, description)

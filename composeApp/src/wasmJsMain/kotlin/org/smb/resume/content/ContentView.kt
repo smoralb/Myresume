@@ -1,25 +1,41 @@
 package org.smb.resume.content
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.model.ExperienceUiModel
 import org.smb.resume.model.JobDescription
 import org.smb.resume.model.StudiesUiModel
+import org.smb.resume.model.TechDescription
+import org.smb.resume.ui.components.CircleShapeComponent
 import org.smb.resume.ui.components.GridItemView
 import org.smb.resume.ui.theme.*
 
@@ -65,18 +81,6 @@ private fun ExperienceSection() {
         style = Typography().displayMedium
     )
     Column {
-        Row {
-            Text(
-                text = stringResource(Res.string.content_timeline_present),
-                style = Typography().labelLarge
-            )
-            Spacer(modifier = Modifier.weight(1f))
-            Text(
-                text = stringResource(Res.string.content_timeline_start),
-                style = Typography().labelLarge
-            )
-        }
-        HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = Spacing.spacingLarge))
         Row(
             modifier = Modifier.fillMaxWidth().padding(vertical = Spacing.spacingLarge),
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
@@ -108,7 +112,7 @@ private fun ExperienceSection() {
                 }
             }
         }
-
+        TimeLineHeader()
         experiences[indexToShow.value].jobDescription.forEach {
             Column {
                 Text(
@@ -117,10 +121,37 @@ private fun ExperienceSection() {
                     style = Typography().titleLarge,
                     fontWeight = FontWeight.SemiBold
                 )
-                Text(
-                    text = it.description,
-                    style = Typography().bodyMedium
-                )
+                when (it) {
+                    is TechDescription -> {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingSmall),
+                            verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+                        ) {
+                            it.description.split(",").forEach { technology ->
+                                SuggestionChip(
+                                    onClick = {},
+                                    label = {
+                                        Text(
+                                            text = technology,
+                                            style = Typography().labelSmall
+                                        )
+                                    },
+                                    colors = AssistChipDefaults.assistChipColors(
+                                        containerColor = color_light_blue,
+                                        labelColor = color_grey
+                                    )
+                                )
+                            }
+                        }
+                    }
+
+                    else -> {
+                        Text(
+                            text = it.description,
+                            style = Typography().bodyMedium
+                        )
+                    }
+                }
             }
         }
     }
@@ -139,7 +170,7 @@ fun getExperiences(): List<ExperienceUiModel> {
                     title = stringResource(Res.string.content_scope),
                     description = stringResource(Res.string.content_idealista_scope)
                 ),
-                JobDescription(
+                TechDescription(
                     title = stringResource(Res.string.content_tech),
                     description = stringResource(Res.string.content_idealista_tech)
                 ),
@@ -260,4 +291,32 @@ fun getStudies(): List<StudiesUiModel> {
             degree = stringResource(Res.string.content_coursera_degree)
         )
     )
+}
+
+@Composable
+fun TimeLineHeader() {
+    Row {
+        Text(
+            text = stringResource(Res.string.content_timeline_present),
+            style = Typography().bodySmall
+        )
+        Spacer(modifier = Modifier.weight(1f))
+        Text(
+            text = stringResource(Res.string.content_timeline_start),
+            style = Typography().labelLarge
+        )
+    }
+    Box(contentAlignment = Alignment.Center) {
+        HorizontalDivider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = Spacing.spacingLarge)
+        )
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            CircleShapeComponent()
+            Spacer(modifier = Modifier.weight(1f))
+            CircleShapeComponent()
+        }
+    }
 }

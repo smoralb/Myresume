@@ -63,7 +63,7 @@ private fun NameSection(modifier: Modifier = Modifier) {
             text = stringResource(Res.string.name),
             autoSize = TextAutoSize.StepBased(
                 minFontSize = Typography().labelLarge.fontSize,
-                maxFontSize = Typography().displayLarge.fontSize,
+                maxFontSize = Typography().displayMedium.fontSize,
                 stepSize = 10.sp
             )
         )
