@@ -5,8 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
@@ -17,7 +15,6 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kotlinx.browser.window
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
@@ -29,18 +26,13 @@ import org.smb.resume.ui.theme.*
 @Composable
 fun HeaderView(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier
-            .padding(horizontal = Spacing.spacingLarge),
-        verticalAlignment = Alignment.Top
+        modifier = modifier.padding(horizontal = Spacing.spacingLarge), verticalAlignment = Alignment.Top
     ) {
         NameSection(
-            modifier = Modifier
-                .weight(weight = 1f)
+            modifier = Modifier.weight(weight = 1f)
         )
         Box(
-            modifier = Modifier
-                .weight(weight = 2f)
-                .fillMaxHeight()
+            modifier = Modifier.weight(weight = 2f).fillMaxHeight()
         ) {
             Image(
                 modifier = Modifier.align(Alignment.BottomStart),
@@ -56,28 +48,17 @@ fun HeaderView(modifier: Modifier = Modifier) {
 @Composable
 private fun NameSection(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+        modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
     ) {
-        BasicText(
-            text = stringResource(Res.string.name),
-            autoSize = TextAutoSize.StepBased(
-                minFontSize = Typography().labelLarge.fontSize,
-                maxFontSize = Typography().displayMedium.fontSize,
-                stepSize = 10.sp
-            )
+        Text(
+            text = stringResource(Res.string.name), style = Typography().displayLarge, fontFamily = spaceMonoFont()
         )
-        Row(
-            modifier = Modifier
-                .drawBehind { drawRect(color = Color.Black) }
-                .padding(vertical = Spacing.spacingSmall, horizontal = Spacing.spacingMedium),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraSmall)
-        ) {
+        Spacer(modifier = Modifier.weight(1f))
+        Row(modifier = Modifier.drawBehind { drawRect(color = Color.Black) }
+            .padding(vertical = Spacing.spacingSmall, horizontal = Spacing.spacingMedium),
+            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraSmall)) {
             Text(
-                text = "\\",
-                style = Typography().headlineLarge,
-                fontFamily = spaceMonoFont(),
-                color = Color.Green
+                text = "\\", style = Typography().headlineLarge, fontFamily = spaceMonoFont(), color = Color.Green
             )
             Text(
                 text = stringResource(Res.string.role),
@@ -92,21 +73,17 @@ private fun NameSection(modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
         ) {
             getSkills().forEach {
-                SuggestionChip(
-                    onClick = {},
-                    label = {
-                        Text(
-                            text = stringResource(it.label)
-                        )
-                    },
-                    icon = {
-                        Icon(
-                            modifier = Modifier.size(12.dp),
-                            painter = painterResource(resource = it.iconReference),
-                            contentDescription = null
-                        )
-                    }
-                )
+                SuggestionChip(onClick = {}, label = {
+                    Text(
+                        text = stringResource(it.label)
+                    )
+                }, icon = {
+                    Icon(
+                        modifier = Modifier.size(12.dp),
+                        painter = painterResource(resource = it.iconReference),
+                        contentDescription = null
+                    )
+                })
             }
         }
     }
@@ -116,13 +93,9 @@ private fun NameSection(modifier: Modifier = Modifier) {
 fun ContactSection(modifier: Modifier = Modifier) {
     Box(modifier = modifier) {
         Column(
-            modifier = Modifier.align(Alignment.TopEnd)
-                .background(
-                    color = color_tomato,
-                    shape = RoundedCornerShape(bottomStart = 8.dp, bottomEnd = 8.dp)
-                )
-                .padding(horizontal = Spacing.spacingExtraLarge)
-                .padding(bottom = Spacing.spacingExtraLarge)
+            modifier = Modifier.align(Alignment.TopEnd).background(
+                color = color_tomato, shape = RoundedCornerShape(bottomStart = 8.dp, bottomEnd = 8.dp)
+            ).padding(horizontal = Spacing.spacingExtraLarge).padding(bottom = Spacing.spacingLarge)
         ) {
             Row(
                 modifier = Modifier.padding(vertical = Spacing.spacingMedium),
@@ -145,12 +118,10 @@ fun ContactSection(modifier: Modifier = Modifier) {
                 url = "https://www.linkedin.com/in/sergiomoralbermudez/"
             )
             ContactText(
-                text = stringResource(Res.string.contact_socials_github),
-                url = "https://github.com/smoralb"
+                text = stringResource(Res.string.contact_socials_github), url = "https://github.com/smoralb"
             )
             ContactText(
-                text = stringResource(Res.string.contact_socials_medium),
-                url = "https://medium.com/@smoralber"
+                text = stringResource(Res.string.contact_socials_medium), url = "https://medium.com/@smoralber"
             )
         }
     }
@@ -173,28 +144,22 @@ fun ContactText(modifier: Modifier = Modifier, text: String, url: String) {
 fun getSkills(): List<IconsCarouselUiModel> {
     return listOf(
         IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_android,
-            label = Res.string.android
+            iconReference = Res.drawable.ic_android, label = Res.string.android
         ),
         IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_apple,
-            label = Res.string.ios
+            iconReference = Res.drawable.ic_apple, label = Res.string.ios
         ),
         IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_compose_multiplatform,
-            label = Res.string.multiPlatform
+            iconReference = Res.drawable.ic_compose_multiplatform, label = Res.string.multiPlatform
         ),
         IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_kotlin,
-            label = Res.string.kotlin
+            iconReference = Res.drawable.ic_kotlin, label = Res.string.kotlin
         ),
         IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_java,
-            label = Res.string.java
+            iconReference = Res.drawable.ic_java, label = Res.string.java
         ),
         IconsCarouselUiModel(
-            iconReference = Res.drawable.ic_swift,
-            label = Res.string.swift
+            iconReference = Res.drawable.ic_swift, label = Res.string.swift
         ),
     )
 }

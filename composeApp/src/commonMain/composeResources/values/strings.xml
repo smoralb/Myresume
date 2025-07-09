@@ -1,6 +1,6 @@
 <resources>
     <!-- Header -->
-    <string name="name">Sergio \nMoral \nBermúdez</string>
+    <string name="name">SMB</string>
     <string name="role">Android developer</string>
     <string name="location">Madrid, Spain</string>
 
@@ -74,15 +74,15 @@
 
     <string name="content_openbank">Openbank</string>
     <string name="content_openbank_date">Nov 19 - Oct 21</string>
-    <string name="content_openbank_role">Android developer</string>
-    <string name="content_openbank_scope">Served as a code reviewer and technical reference in a multinational development team, supporting architecture decisions and enforcing coding standards.</string>
-    <string name="content_openbank_tech">Bitrise, SonarQube, Firebase Crashlytics, Kotlin</string>
+    <string name="content_openbank_role">Android Developer</string>
+    <string name="content_openbank_scope">Worked on the Openbank client app, developing new features, maintaining code quality, and ensuring app stability. Contributed to a cross-platform team to modernize the architecture and improve performance.</string>
+    <string name="content_openbank_tech">Kotlin, Jetpack, MVVM, Clean Architecture, Android SDK, Git, CI/CD, Agile, Unit Testing</string>
     <string name="content_openbank_contrib">
-        - Reviewed and enforced compliance with architecture and code quality standards.
+        - Implemented new functionalities and maintained high code quality with 90%+ test coverage.
 
-        - Achieved >90% unit test coverage.
+        - Helped design and migrate to a modern architecture to boost app performance.
 
-        - Maintained crash-free performance through proactive monitoring tools.
+        - Collaborated in an agile team with iOS, web, and backend developers to deliver features per sprint.
     </string>
 
     <string name="content_idealista">idealista / yaencontre</string>
