@@ -1,5 +1,6 @@
 package org.smb.resume.content
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
@@ -13,9 +14,12 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -31,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.skia.skottie.Logger
 import org.smb.resume.model.ExperienceUiModel
 import org.smb.resume.model.JobDescription
 import org.smb.resume.model.StudiesUiModel
@@ -93,7 +98,7 @@ private fun ExperienceSection() {
                         containerColor = color_inverse
                     ),
                     elevation = CardDefaults.elevatedCardElevation(
-                        defaultElevation = Elevation.elevationMedium,
+                        defaultElevation = if (indexToShow.value == index) Elevation.elevationSmall else Elevation.elevationMedium,
                         pressedElevation = Elevation.elevationSmall,
                         hoveredElevation = Elevation.elevationExtraLarge
 
@@ -112,7 +117,8 @@ private fun ExperienceSection() {
                 }
             }
         }
-        TimeLineHeader()
+        TimeLineHeader(indexSelected = (indexToShow.value.toFloat()) / experiences.size)
+
         experiences[indexToShow.value].jobDescription.forEach {
             Column {
                 Text(
@@ -136,9 +142,10 @@ private fun ExperienceSection() {
                                             style = Typography().labelSmall
                                         )
                                     },
+                                    border = null,
                                     colors = AssistChipDefaults.assistChipColors(
                                         containerColor = color_light_blue,
-                                        labelColor = color_grey
+                                        labelColor = color_dark_blue
                                     )
                                 )
                             }
@@ -161,6 +168,106 @@ private fun ExperienceSection() {
 fun getExperiences(): List<ExperienceUiModel> {
     return listOf(
         ExperienceUiModel(
+            logoUrl = Res.drawable.ic_babel,
+            companyName = stringResource(Res.string.content_babel),
+            date = stringResource(Res.string.content_babel_date),
+            role = stringResource(Res.string.content_babel_role),
+            jobDescription = listOf(
+                JobDescription(
+                    title = stringResource(Res.string.content_scope),
+                    description = stringResource(Res.string.content_babel_scope)
+                ),
+                TechDescription(
+                    title = stringResource(Res.string.content_tech),
+                    description = stringResource(Res.string.content_babel_tech)
+                ),
+                JobDescription(
+                    title = stringResource(Res.string.content_contributions),
+                    description = stringResource(Res.string.content_babel_contrib)
+                )
+            )
+        ),
+        ExperienceUiModel(
+            logoUrl = Res.drawable.ic_talentomobile,
+            companyName = stringResource(Res.string.content_talentomobile),
+            date = stringResource(Res.string.content_talentomobile_date),
+            role = stringResource(Res.string.content_talentomobile_role),
+            jobDescription = listOf(
+                JobDescription(
+                    title = stringResource(Res.string.content_scope),
+                    description = stringResource(Res.string.content_talentomobile_scope)
+                ),
+                TechDescription(
+                    title = stringResource(Res.string.content_tech),
+                    description = stringResource(Res.string.content_talentomobile_tech)
+                ),
+                JobDescription(
+                    title = stringResource(Res.string.content_contributions),
+                    description = stringResource(Res.string.content_talentomobile_contrib)
+                )
+            )
+        ),
+        ExperienceUiModel(
+            logoUrl = Res.drawable.ic_accenture,
+            companyName = stringResource(Res.string.content_accenture),
+            date = stringResource(Res.string.content_accenture_date),
+            role = stringResource(Res.string.content_accenture_role),
+            jobDescription = listOf(
+                JobDescription(
+                    title = stringResource(Res.string.content_scope),
+                    description = stringResource(Res.string.content_accenture_scope)
+                ),
+                TechDescription(
+                    title = stringResource(Res.string.content_tech),
+                    description = stringResource(Res.string.content_accenture_tech)
+                ),
+                JobDescription(
+                    title = stringResource(Res.string.content_contributions),
+                    description = stringResource(Res.string.content_accenture_contrib)
+                )
+            )
+        ),
+        ExperienceUiModel(
+            logoUrl = Res.drawable.ic_ipd,
+            companyName = stringResource(Res.string.content_ipd),
+            date = stringResource(Res.string.content_ipd_date),
+            role = stringResource(Res.string.content_ipd_role),
+            jobDescription = listOf(
+                JobDescription(
+                    title = stringResource(Res.string.content_scope),
+                    description = stringResource(Res.string.content_ipd_scope)
+                ),
+                TechDescription(
+                    title = stringResource(Res.string.content_tech),
+                    description = stringResource(Res.string.content_ipd_tech)
+                ),
+                JobDescription(
+                    title = stringResource(Res.string.content_contributions),
+                    description = stringResource(Res.string.content_ipd_contrib)
+                )
+            )
+        ),
+        ExperienceUiModel(
+            logoUrl = Res.drawable.ic_openbank,
+            companyName = stringResource(Res.string.content_openbank),
+            date = stringResource(Res.string.content_openbank_date),
+            role = stringResource(Res.string.content_openbank_role),
+            jobDescription = listOf(
+                JobDescription(
+                    title = stringResource(Res.string.content_scope),
+                    description = stringResource(Res.string.content_openbank_scope)
+                ),
+                TechDescription(
+                    title = stringResource(Res.string.content_tech),
+                    description = stringResource(Res.string.content_openbank_tech)
+                ),
+                JobDescription(
+                    title = stringResource(Res.string.content_contributions),
+                    description = stringResource(Res.string.content_openbank_contrib)
+                )
+            )
+        ),
+        ExperienceUiModel(
             logoUrl = Res.drawable.ic_idealista,
             companyName = stringResource(Res.string.content_idealista),
             date = stringResource(Res.string.content_idealista_date),
@@ -177,101 +284,6 @@ fun getExperiences(): List<ExperienceUiModel> {
                 JobDescription(
                     title = stringResource(Res.string.content_contributions),
                     description = stringResource(Res.string.content_idealista_contrib)
-                )
-            )
-        ), ExperienceUiModel(
-            logoUrl = Res.drawable.ic_openbank,
-            companyName = stringResource(Res.string.content_openbank),
-            date = stringResource(Res.string.content_openbank_date),
-            role = stringResource(Res.string.content_openbank_role),
-            jobDescription = listOf(
-                JobDescription(
-                    title = stringResource(Res.string.content_scope),
-                    description = stringResource(Res.string.content_openbank_scope)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_tech),
-                    description = stringResource(Res.string.content_openbank_tech)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_contributions),
-                    description = stringResource(Res.string.content_openbank_contrib)
-                )
-            )
-        ), ExperienceUiModel(
-            logoUrl = Res.drawable.ic_ipd,
-            companyName = stringResource(Res.string.content_ipd),
-            date = stringResource(Res.string.content_ipd_date),
-            role = stringResource(Res.string.content_ipd_role),
-            jobDescription = listOf(
-                JobDescription(
-                    title = stringResource(Res.string.content_scope),
-                    description = stringResource(Res.string.content_ipd_scope)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_tech),
-                    description = stringResource(Res.string.content_ipd_tech)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_contributions),
-                    description = stringResource(Res.string.content_ipd_contrib)
-                )
-            )
-        ), ExperienceUiModel(
-            logoUrl = Res.drawable.ic_accenture,
-            companyName = stringResource(Res.string.content_accenture),
-            date = stringResource(Res.string.content_accenture_date),
-            role = stringResource(Res.string.content_accenture_role),
-            jobDescription = listOf(
-                JobDescription(
-                    title = stringResource(Res.string.content_scope),
-                    description = stringResource(Res.string.content_accenture_scope)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_tech),
-                    description = stringResource(Res.string.content_accenture_tech)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_contributions),
-                    description = stringResource(Res.string.content_accenture_contrib)
-                )
-            )
-        ), ExperienceUiModel(
-            logoUrl = Res.drawable.ic_talentomobile,
-            companyName = stringResource(Res.string.content_talentomobile),
-            date = stringResource(Res.string.content_talentomobile_date),
-            role = stringResource(Res.string.content_talentomobile_role),
-            jobDescription = listOf(
-                JobDescription(
-                    title = stringResource(Res.string.content_scope),
-                    description = stringResource(Res.string.content_talentomobile_scope)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_tech),
-                    description = stringResource(Res.string.content_talentomobile_tech)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_contributions),
-                    description = stringResource(Res.string.content_talentomobile_contrib)
-                )
-            )
-        ), ExperienceUiModel(
-            logoUrl = Res.drawable.ic_babel,
-            companyName = stringResource(Res.string.content_babel),
-            date = stringResource(Res.string.content_babel_date),
-            role = stringResource(Res.string.content_babel_role),
-            jobDescription = listOf(
-                JobDescription(
-                    title = stringResource(Res.string.content_scope),
-                    description = stringResource(Res.string.content_babel_scope)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_tech),
-                    description = stringResource(Res.string.content_babel_tech)
-                ),
-                JobDescription(
-                    title = stringResource(Res.string.content_contributions),
-                    description = stringResource(Res.string.content_babel_contrib)
                 )
             )
         )
@@ -294,29 +306,31 @@ fun getStudies(): List<StudiesUiModel> {
 }
 
 @Composable
-fun TimeLineHeader() {
+fun TimeLineHeader(indexSelected: Float) {
+
+    val animatedProgress by animateFloatAsState(
+        targetValue = indexSelected + 0.05f,
+        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
+    )
+
     Row {
-        Text(
-            text = stringResource(Res.string.content_timeline_present),
-            style = Typography().bodySmall
-        )
-        Spacer(modifier = Modifier.weight(1f))
         Text(
             text = stringResource(Res.string.content_timeline_start),
             style = Typography().labelLarge
         )
-    }
-    Box(contentAlignment = Alignment.Center) {
-        HorizontalDivider(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = Spacing.spacingLarge)
+        Spacer(modifier = Modifier.weight(1f))
+        Text(
+            text = stringResource(Res.string.content_timeline_present),
+            style = Typography().bodySmall
         )
 
-        Row(modifier = Modifier.fillMaxWidth()) {
-            CircleShapeComponent()
-            Spacer(modifier = Modifier.weight(1f))
-            CircleShapeComponent()
-        }
     }
+
+    LinearProgressIndicator(
+        progress = { animatedProgress },
+        modifier = Modifier.fillMaxWidth(),
+        color = color_grey,
+        trackColor = color_light_blue,
+        strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+    )
 }
