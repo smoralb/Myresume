@@ -23,7 +23,11 @@ fun Typography() = Typography().run {
             fontFamily = montserratFamily
         ),
         displaySmall,
-        headlineLarge,
+        headlineLarge = TextStyle(
+            fontSize = 54.sp,
+            fontWeight = FontWeight.ExtraBold,
+            fontFamily = montserratFamily
+        ),
         headlineMedium,
         headlineSmall,
         titleLarge,

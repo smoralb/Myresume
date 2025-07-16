@@ -16,15 +16,18 @@
     <string name="content_timeline_present">Present</string>
     <string name="content_timeline_start">Start</string>
     <string name="content_scope">Scope:</string>
-    <string name="content_tech">Technologies:</string>
+    <string name="content_tech_stack">Tech stack:</string>
     <string name="content_contributions">Key Contributions:</string>
-    <string name="content_title">- My experience -</string>
+    <string name="content_title">My experience</string>
+
     <string name="content_babel">Babel</string>
     <string name="content_babel_date">Mar 17 - Mar 18</string>
-    <string name="content_babel_role">Android developer</string>
+    <string name="content_babel_role">Android developer (Internship)</string>
     <string name="content_babel_scope">Led and collaborated on various Android projects using Java and Kotlin. Primary responsibilities included gathering and analyzing client requirements to align development outcomes with business needs.</string>
-    <string name="content_babel_tech">Java, Kotlin, Android SDK, Google Play Console, Windows Phone, BlackBerry</string>
+    <string name="content_babel_tech">Java, Kotlin, Windows Phone, BlackBerry, MVP Architecture</string>
     <string name="content_babel_contrib">
+        - Main project: Social security app.
+
         - Delivered complete Android apps from development to deployment on the Play Store.
 
         - Ensured product quality and user satisfaction through requirement analysis.
@@ -35,21 +38,21 @@
     <string name="content_talentomobile_date">Mar 18 - Jun 18</string>
     <string name="content_talentomobile_role">Android developer</string>
     <string name="content_talentomobile_scope">Contributed to projects across the banking and document recognition sectors, with a primary focus on improving architecture and stability in large-scale Android applications.</string>
-    <string name="content_talentomobile_tech">Kotlin, MVP Architecture, Fabric, OCR, JIRA</string>
+    <string name="content_talentomobile_tech">Kotlin, OCR, MVP Architecture</string>
     <string name="content_talentomobile_contrib">
+        - Main project: Santander Chile´s app
+
+        - Other projects: OCR library for ID´s recognition, DKV Android app.
+
         - Helped implement a new MVP-based architecture to improve maintainability.
 
-        - Maintained and developed new features for the Santander Chile banking app.
-
-        - Built a standalone OCR library for ID recognition used across multiple projects.
-
-        - Reduced crashes and memory leaks, increasing app stability.
+        - Reduced crashes and memory leaks and increasing app stability using Fabric.
     </string>
     <string name="content_accenture">Accenture</string>
     <string name="content_accenture_date">Jun 18 - Nov 18</string>
     <string name="content_accenture_role">Software developer</string>
     <string name="content_accenture_scope">Worked on both Android and web development tasks, including architecture planning and technical documentation.</string>
-    <string name="content_accenture_tech"> Angular 6, Bootstrap 4, TypeScript, JIRA</string>
+    <string name="content_accenture_tech"> Angular 6, Bootstrap 4, TypeScript</string>
     <string name="content_accenture_contrib">
         - Documented software architecture and coordinated its validation with clients.
 
@@ -60,10 +63,10 @@
     <string name="content_ipd">iphonedroid</string>
     <string name="content_ipd_date">Nov 18 - Nov 19</string>
     <string name="content_ipd_role">Android developer</string>
-    <string name="content_ipd_scope">Led Android development for clients in retail and consumer goods, primarily working on the Leroy Merlin app.</string>
-    <string name="content_ipd_tech">Kotlin, Firebase Crashlytics, AppCenter, Fastlane, JIRA</string>
+    <string name="content_ipd_scope">Led Android development for clients in retail and consumer goods.</string>
+    <string name="content_ipd_tech">Kotlin, RxKotlin, MVP Architecture</string>
     <string name="content_ipd_contrib">
-        - Acted as the primary Android developer for Leroy Merlin’s long-term app.
+        - Main project: Leroy Merlin app.
 
         - Defined acceptance criteria and translated business needs into development tasks.
 
@@ -76,7 +79,7 @@
     <string name="content_openbank_date">Nov 19 - Oct 21</string>
     <string name="content_openbank_role">Android Developer</string>
     <string name="content_openbank_scope">Worked on the Openbank client app, developing new features, maintaining code quality, and ensuring app stability. Contributed to a cross-platform team to modernize the architecture and improve performance.</string>
-    <string name="content_openbank_tech">Kotlin, Jetpack, MVVM, Clean Architecture, Android SDK, Git, CI/CD, Agile, Unit Testing</string>
+    <string name="content_openbank_tech">Kotlin, Jetpack, MVVM Architecture, Bitrise CI/CD, JUnit5 Unit Testing</string>
     <string name="content_openbank_contrib">
         - Implemented new functionalities and maintained high code quality with 90%+ test coverage.
 
@@ -89,19 +92,23 @@
     <string name="content_idealista_date">Nov 22 - Today</string>
     <string name="content_idealista_role">Apps developer</string>
     <string name="content_idealista_scope">Android developer for a high-traffic consumer app with 300k+ active users, focused on performance, UX, and migration to modern UI frameworks.</string>
-    <string name="content_idealista_tech">Kotlin, Jetpack Compose, Firebase Crashlytics, Adobe Analytics, A/B Testing, Swift, UIKit</string>
+    <string name="content_idealista_tech">Kotlin, Jetpack Compose, Firebase Crashlytics, Adobe Analytics, Swift, UIKit</string>
     <string name="content_idealista_contrib">
-        - Maintained a 99.97% crash-free rate and a 4.6 rating on the Play Store.
+        - Maintained a 99.97% crash-free rate and a ~4.6 rating on the Play Store.
 
-        - Led migration to Jetpack Compose (60% completed).
+        - Led migration to Jetpack Compose.
 
         - Integrated unit testing and analytics to ensure quality and optimize UX.
 
-        - Supported iOS development using Swift and UIKit.
+        - Create and analyze A/B testing using Adobe platform (Adobe Analytics, Adobe Assurance)
+
+        - Working closely to UX/UI design team to help to create new design and improve the final product.
+
+        - Supported iOS development using Swift and UIKit and Swift UI.
     </string>
 
     <!-- Studies -->
-    <string name="content_studies_title">- Studies -</string>
+    <string name="content_studies_title">Studies</string>
     <string name="content_etsisi">Universidad Politécnica de Madrid</string>
     <string name="content_etsisi_degree">Software Engineering, Software Engineering</string>
 

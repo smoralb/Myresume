@@ -5,8 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
-import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -53,38 +51,18 @@ private fun NameSection(modifier: Modifier = Modifier) {
         Text(
             text = stringResource(Res.string.name), style = Typography().displayLarge, fontFamily = spaceMonoFont()
         )
-        Spacer(modifier = Modifier.weight(1f))
-        Row(modifier = Modifier.drawBehind { drawRect(color = Color.Black) }
+        Row(modifier = Modifier.padding(bottom = Spacing.spacingLarge).drawBehind { drawRect(color = Color.Black) }
             .padding(vertical = Spacing.spacingSmall, horizontal = Spacing.spacingMedium),
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraSmall)) {
             Text(
-                text = "\\", style = Typography().headlineLarge, fontFamily = spaceMonoFont(), color = Color.Green
+                text = "\\", style = Typography().headlineMedium, fontFamily = spaceMonoFont(), color = Color.Green
             )
             Text(
                 text = stringResource(Res.string.role),
-                style = Typography().headlineLarge,
+                style = Typography().headlineMedium,
                 fontFamily = spaceMonoFont(),
                 color = color_inverse
             )
-        }
-        FlowRow(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
-            verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
-        ) {
-            getSkills().forEach {
-                SuggestionChip(onClick = {}, label = {
-                    Text(
-                        text = stringResource(it.label)
-                    )
-                }, icon = {
-                    Icon(
-                        modifier = Modifier.size(12.dp),
-                        painter = painterResource(resource = it.iconReference),
-                        contentDescription = null
-                    )
-                })
-            }
         }
     }
 }

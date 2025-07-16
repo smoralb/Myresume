@@ -29,9 +29,7 @@ fun App() {
         Layout(
             content = {
                 Column(
-                    modifier = Modifier
-                        .verticalScroll(state = scrollState)
-                        .padding(horizontal = Spacing.spacingMedium),
+                    modifier = Modifier.verticalScroll(state = scrollState),
                     verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
                 ) {
                     val headerHeight = (screenSize.value.second / window.devicePixelRatio).toInt().dp
@@ -42,9 +40,7 @@ fun App() {
                             .parallaxLayoutModifier(scrollState = scrollState, 2)
                     )
                     ContentView(
-                        modifier = Modifier
-                            .background(color = color_inverse)
-                            .padding(horizontal = Spacing.spacingExtraLarge)
+                        modifier = Modifier.background(color = color_inverse)
                     )
                     FooterView()
                 }
