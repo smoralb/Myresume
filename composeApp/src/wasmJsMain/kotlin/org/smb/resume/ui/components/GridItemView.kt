@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
-import org.smb.resume.model.StudiesUiModel
+import org.smb.resume.content.model.StudiesUiModel
 import org.smb.resume.ui.theme.Elevation
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
