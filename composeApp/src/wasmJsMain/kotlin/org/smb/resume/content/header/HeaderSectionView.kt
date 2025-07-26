@@ -35,7 +35,7 @@ fun HeaderSectionView(title: StringResource) {
             modifier = Modifier.padding(horizontal = Spacing.spacingMedium),
             text = stringResource(title),
             color = color_inverse,
-            style = Typography().headlineLarge,
+            style = Typography().displayMedium,
             textAlign = TextAlign.Center
         )
         Text(

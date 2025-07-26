@@ -19,29 +19,85 @@ fun Typography() = Typography().run {
         ),
         displayMedium = TextStyle(
             fontSize = 54.sp,
-            fontWeight = FontWeight.SemiBold,
-            fontFamily = montserratFamily
-        ),
-        displaySmall,
-        headlineLarge = TextStyle(
-            fontSize = 54.sp,
             fontWeight = FontWeight.ExtraBold,
             fontFamily = montserratFamily
         ),
-        headlineMedium,
-        headlineSmall,
-        titleLarge,
-        titleMedium,
-        titleSmall,
-        bodyLarge,
-        bodyMedium,
-        bodySmall,
-        labelLarge,
-        labelMedium = TextStyle(
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Normal,
+        displaySmall = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 36.sp,
+            lineHeight = 44.sp
+        ),
+        headlineLarge = TextStyle(
+            fontSize = 54.sp,
+            fontWeight = FontWeight.SemiBold,
             fontFamily = montserratFamily
         ),
-        labelSmall
+        headlineMedium = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 36.sp,
+            lineHeight = 44.sp
+        ),
+        headlineSmall = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 28.sp,
+            lineHeight = 36.sp
+        ),
+        titleLarge = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 22.sp,
+            lineHeight = 28.sp
+        ),
+        titleMedium = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 16.sp,
+            lineHeight = 24.sp
+        ),
+        titleSmall = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        ),
+        bodyLarge = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp,
+            lineHeight = 24.sp
+        ),
+        bodyMedium = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        ),
+        bodySmall = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Light,
+            fontSize = 12.sp,
+            lineHeight = 16.sp
+        ),
+        labelLarge = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        ),
+        labelMedium = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp,
+            lineHeight = 16.sp
+        ),
+        labelSmall = TextStyle(
+            fontFamily = montserratFamily,
+            fontWeight = FontWeight.Light,
+            fontSize = 10.sp,
+            lineHeight = 12.sp
+        )
     )
 }

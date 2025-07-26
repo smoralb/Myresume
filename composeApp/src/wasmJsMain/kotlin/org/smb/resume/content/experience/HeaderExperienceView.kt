@@ -2,6 +2,7 @@ package org.smb.resume.content.experience
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -13,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 import org.smb.resume.content.model.ExperienceUiModel
 import org.smb.resume.ui.theme.Spacing
+import org.smb.resume.ui.theme.Typography
 
 @Composable
 fun HeaderExperienceView(itemExperience: ExperienceUiModel) {
@@ -25,9 +27,14 @@ fun HeaderExperienceView(itemExperience: ExperienceUiModel) {
             painter = painterResource(itemExperience.logoUrl),
             alignment = Alignment.Center,
             contentDescription = null,
-            contentScale = ContentScale.Inside
+            contentScale = ContentScale.Fit
         )
-        Text(text = "Android developer")
-
+        Column(
+            modifier = Modifier.align(Alignment.CenterVertically),
+            verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
+        ) {
+            Text(text = itemExperience.role, style = Typography().titleLarge)
+            Text(text = itemExperience.date, style = Typography().titleMedium)
+        }
     }
 }

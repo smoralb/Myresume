@@ -3,10 +3,7 @@ package org.smb.resume.content.experience
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -60,6 +57,7 @@ fun ExperienceSection() {
             ) {
                 Column(modifier = Modifier.padding(all = Spacing.spacingLarge)) {
                     HeaderExperienceView(itemExperience)
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(all = Spacing.spacingMedium))
                     experiences[indexToShow.value].jobDescription.forEach {
                         Column {
                             Text(

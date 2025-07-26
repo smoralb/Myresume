@@ -105,7 +105,7 @@ fun CardHeader(item: ExperienceUiModel) {
                 )
                 Text(
                     text = " - ",
-                    style = Typography().headlineLarge
+                    style = Typography().displayMedium
                 )
                 Text(
                     text = item.role,
