@@ -15,9 +15,9 @@
     <!-- Experience -->
     <string name="content_timeline_present">Present</string>
     <string name="content_timeline_start">Start</string>
-    <string name="content_scope">Scope:</string>
-    <string name="content_tech_stack">Tech stack:</string>
-    <string name="content_contributions">Key Contributions:</string>
+    <string name="content_scope">Scope</string>
+    <string name="content_tech_stack">Tech stack</string>
+    <string name="content_contributions">Key Contributions</string>
     <string name="content_title">My experience</string>
 
     <string name="content_babel">Babel</string>

@@ -1,94 +1,30 @@
 package org.smb.resume.content.experience
 
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.AssistChipDefaults
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.ProgressIndicatorDefaults
-import androidx.compose.material3.SuggestionChip
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import myresume.composeapp.generated.resources.Res
-import myresume.composeapp.generated.resources.content_accenture
-import myresume.composeapp.generated.resources.content_accenture_contrib
-import myresume.composeapp.generated.resources.content_accenture_date
-import myresume.composeapp.generated.resources.content_accenture_role
-import myresume.composeapp.generated.resources.content_accenture_scope
-import myresume.composeapp.generated.resources.content_accenture_tech
-import myresume.composeapp.generated.resources.content_babel
-import myresume.composeapp.generated.resources.content_babel_contrib
-import myresume.composeapp.generated.resources.content_babel_date
-import myresume.composeapp.generated.resources.content_babel_role
-import myresume.composeapp.generated.resources.content_babel_scope
-import myresume.composeapp.generated.resources.content_babel_tech
-import myresume.composeapp.generated.resources.content_contributions
-import myresume.composeapp.generated.resources.content_idealista
-import myresume.composeapp.generated.resources.content_idealista_contrib
-import myresume.composeapp.generated.resources.content_idealista_date
-import myresume.composeapp.generated.resources.content_idealista_role
-import myresume.composeapp.generated.resources.content_idealista_scope
-import myresume.composeapp.generated.resources.content_idealista_tech
-import myresume.composeapp.generated.resources.content_ipd
-import myresume.composeapp.generated.resources.content_ipd_contrib
-import myresume.composeapp.generated.resources.content_ipd_date
-import myresume.composeapp.generated.resources.content_ipd_role
-import myresume.composeapp.generated.resources.content_ipd_scope
-import myresume.composeapp.generated.resources.content_ipd_tech
-import myresume.composeapp.generated.resources.content_openbank
-import myresume.composeapp.generated.resources.content_openbank_contrib
-import myresume.composeapp.generated.resources.content_openbank_date
-import myresume.composeapp.generated.resources.content_openbank_role
-import myresume.composeapp.generated.resources.content_openbank_scope
-import myresume.composeapp.generated.resources.content_openbank_tech
-import myresume.composeapp.generated.resources.content_scope
-import myresume.composeapp.generated.resources.content_talentomobile
-import myresume.composeapp.generated.resources.content_talentomobile_contrib
-import myresume.composeapp.generated.resources.content_talentomobile_date
-import myresume.composeapp.generated.resources.content_talentomobile_role
-import myresume.composeapp.generated.resources.content_talentomobile_scope
-import myresume.composeapp.generated.resources.content_talentomobile_tech
-import myresume.composeapp.generated.resources.content_tech_stack
-import myresume.composeapp.generated.resources.content_timeline_present
-import myresume.composeapp.generated.resources.content_timeline_start
-import myresume.composeapp.generated.resources.content_title
-import myresume.composeapp.generated.resources.ic_accenture
-import myresume.composeapp.generated.resources.ic_babel
-import myresume.composeapp.generated.resources.ic_idealista
-import myresume.composeapp.generated.resources.ic_ipd
-import myresume.composeapp.generated.resources.ic_openbank
-import myresume.composeapp.generated.resources.ic_talentomobile
+import androidx.compose.ui.unit.dp
+import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.content.header.HeaderSectionView
 import org.smb.resume.content.model.ExperienceUiModel
 import org.smb.resume.content.model.JobDescription
 import org.smb.resume.content.model.TechDescription
-import org.smb.resume.ui.theme.Elevation
-import org.smb.resume.ui.theme.Shapes
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
-import org.smb.resume.ui.theme.color_dark_blue
-import org.smb.resume.ui.theme.color_grey
 import org.smb.resume.ui.theme.color_inverse
-import org.smb.resume.ui.theme.color_light_blue
 
 @Composable
 fun ExperienceSection() {
@@ -98,114 +34,64 @@ fun ExperienceSection() {
 
     HeaderSectionView(title = Res.string.content_title)
 
-    Column(modifier = Modifier.padding(horizontal = Spacing.spacingLarge)) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(vertical = Spacing.spacingLarge),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
-        ) {
-            experiences.forEachIndexed { index, experienceUiModel ->
-                ElevatedCard(
-                    modifier = Modifier.aspectRatio(ratio = 16 / 9f).weight(1f),
-                    shape = Shapes.small,
-                    colors = CardDefaults.elevatedCardColors(
-                        containerColor = color_inverse
-                    ),
-                    elevation = CardDefaults.elevatedCardElevation(
-                        defaultElevation = if (indexToShow.value == index) Elevation.elevationSmall else Elevation.elevationMedium,
-                        pressedElevation = Elevation.elevationSmall,
-                        hoveredElevation = Elevation.elevationExtraLarge
+    val pagerState = rememberPagerState(initialPage = 0, pageCount = { experiences.size })
 
-                    ),
-                    onClick = {
-                        indexToShow.value = index
-                    }
-                ) {
-                    Image(
-                        modifier = Modifier.fillMaxSize(),
-                        painter = painterResource(experienceUiModel.logoUrl),
-                        alignment = Alignment.Center,
-                        contentDescription = null,
-                        contentScale = ContentScale.Inside
-                    )
-                }
-            }
-        }
-        TimeLineHeader(indexSelected = (indexToShow.value.toFloat()) / experiences.size)
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            modifier = Modifier.size(50.dp).weight(1f),
+            painter = painterResource(Res.drawable.ic_arrow_backward),
+            contentDescription = null,
+            tint = Color.Black
+        )
+        HorizontalPager(
+            modifier = Modifier.weight(4f),
+            state = pagerState,
+            pageSpacing = Spacing.spacingLarge
+        ) { pageIndex ->
 
-        experiences[indexToShow.value].jobDescription.forEach {
-            Column {
-                Text(
-                    modifier = Modifier.padding(vertical = Spacing.spacingSmall),
-                    text = it.title,
-                    style = Typography().titleLarge,
-                    fontWeight = FontWeight.SemiBold
-                )
-                when (it) {
-                    is TechDescription -> {
-                        FlowRow(
-                            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingSmall),
-                            verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
-                        ) {
-                            it.description.split(",").forEach { technology ->
-                                SuggestionChip(
-                                    onClick = {},
-                                    label = {
-                                        Text(
-                                            text = technology,
-                                            style = Typography().labelSmall
-                                        )
-                                    },
-                                    border = null,
-                                    colors = AssistChipDefaults.assistChipColors(
-                                        containerColor = color_light_blue,
-                                        labelColor = color_dark_blue
+            val itemExperience = remember { experiences[pageIndex] }
+
+            OutlinedCard(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = color_inverse)
+            ) {
+                Column(modifier = Modifier.padding(all = Spacing.spacingLarge)) {
+                    HeaderExperienceView(itemExperience)
+                    experiences[indexToShow.value].jobDescription.forEach {
+                        Column {
+                            Text(
+                                modifier = Modifier.padding(vertical = Spacing.spacingSmall),
+                                text = it.title,
+                                style = Typography().titleLarge,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            when (it) {
+                                is TechDescription -> {
+                                    SuggestionChips(it)
+                                }
+
+                                else -> {
+                                    Text(
+                                        text = it.description,
+                                        style = Typography().bodyLarge
                                     )
-                                )
+                                }
                             }
                         }
                     }
-
-                    else -> {
-                        Text(
-                            text = it.description,
-                            style = Typography().bodyMedium
-                        )
-                    }
                 }
             }
         }
-    }
-}
-
-
-@Composable
-private fun TimeLineHeader(indexSelected: Float) {
-
-    val animatedProgress by animateFloatAsState(
-        targetValue = indexSelected + 0.05f,
-        animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
-    )
-
-    Row {
-        Text(
-            text = stringResource(Res.string.content_timeline_start),
-            style = Typography().labelLarge
+        Icon(
+            modifier = Modifier.size(50.dp).weight(1f),
+            painter = painterResource(Res.drawable.ic_arrow_forward),
+            contentDescription = null,
+            tint = Color.Black
         )
-        Spacer(modifier = Modifier.weight(1f))
-        Text(
-            text = stringResource(Res.string.content_timeline_present),
-            style = Typography().bodySmall
-        )
-
     }
-
-    LinearProgressIndicator(
-        progress = { animatedProgress },
-        modifier = Modifier.fillMaxWidth(),
-        color = color_grey,
-        trackColor = color_light_blue,
-        strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
-    )
 }
 
 @Composable
