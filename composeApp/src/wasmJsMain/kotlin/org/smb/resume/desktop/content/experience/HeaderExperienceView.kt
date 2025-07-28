@@ -1,4 +1,4 @@
-package org.smb.resume.content.experience
+package org.smb.resume.desktop.content.experience
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
-import org.smb.resume.content.model.ExperienceUiModel
+import org.smb.resume.desktop.content.model.ExperienceUiModel
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 

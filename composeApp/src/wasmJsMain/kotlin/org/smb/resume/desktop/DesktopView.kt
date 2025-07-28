@@ -1,4 +1,4 @@
-package org.smb.resume
+package org.smb.resume.desktop
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
-import org.smb.resume.content.ContentView
-import org.smb.resume.footer.FooterView
-import org.smb.resume.header.HeaderView
+import org.smb.resume.desktop.content.ContentView
+import org.smb.resume.desktop.footer.FooterView
+import org.smb.resume.desktop.header.HeaderView
 import org.smb.resume.ui.extensions.parallaxLayoutModifier
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.color_inverse

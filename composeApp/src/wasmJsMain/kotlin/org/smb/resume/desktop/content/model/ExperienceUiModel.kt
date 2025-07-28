@@ -1,4 +1,4 @@
-package org.smb.resume.content.model
+package org.smb.resume.desktop.content.model
 
 import org.jetbrains.compose.resources.DrawableResource
 

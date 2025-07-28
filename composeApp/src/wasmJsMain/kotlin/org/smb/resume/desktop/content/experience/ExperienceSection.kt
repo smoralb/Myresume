@@ -1,4 +1,4 @@
-package org.smb.resume.content.experience
+package org.smb.resume.desktop.content.experience
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
@@ -15,10 +15,10 @@ import kotlinx.coroutines.launch
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import org.smb.resume.content.header.HeaderSectionView
-import org.smb.resume.content.model.ExperienceUiModel
-import org.smb.resume.content.model.JobDescription
-import org.smb.resume.content.model.TechDescription
+import org.smb.resume.desktop.content.header.HeaderSectionView
+import org.smb.resume.desktop.content.model.ExperienceUiModel
+import org.smb.resume.desktop.content.model.JobDescription
+import org.smb.resume.desktop.content.model.TechDescription
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_inverse

@@ -1,4 +1,4 @@
-package org.smb.resume.content.experience
+package org.smb.resume.desktop.content.experience
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.FlowRow
@@ -6,7 +6,7 @@ import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import org.smb.resume.content.model.TechDescription
+import org.smb.resume.desktop.content.model.TechDescription
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_dark_blue

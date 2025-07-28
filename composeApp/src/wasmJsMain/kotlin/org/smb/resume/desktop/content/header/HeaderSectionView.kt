@@ -1,4 +1,4 @@
-package org.smb.resume.content.header
+package org.smb.resume.desktop.content.header
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row

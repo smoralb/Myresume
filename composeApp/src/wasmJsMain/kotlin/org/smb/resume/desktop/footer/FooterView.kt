@@ -1,4 +1,4 @@
-package org.smb.resume.footer
+package org.smb.resume.desktop.footer
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
