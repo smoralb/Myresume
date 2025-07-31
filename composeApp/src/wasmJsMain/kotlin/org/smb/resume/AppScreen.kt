@@ -1,22 +1,20 @@
 package org.smb.resume
 
-import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
-import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import org.smb.resume.desktop.DesktopView
 import org.smb.resume.mobile.MobileView
 import org.smb.resume.ui.theme.MyResumeTheme
+import org.smb.resume.utils.ScreenSizeType
+import org.smb.resume.utils.observeWindowSize
 
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Composable
 fun AppScreen() {
 
-    val screenSize = calculateWindowSizeClass()
+    val screenSize = observeWindowSize()
 
     MyResumeTheme {
-        when (screenSize.widthSizeClass) {
-            WindowWidthSizeClass.Compact -> MobileView()
+        when {
+            screenSize < ScreenSizeType.COMPACT.value -> MobileView()
             else -> DesktopView()
         }
     }
