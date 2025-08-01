@@ -25,7 +25,7 @@ import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_inverse
 
 @Composable
-fun ExperienceSection() {
+fun ExperienceMobileSection() {
 
     val coroutineScope = rememberCoroutineScope()
     val experiences = getExperiences()

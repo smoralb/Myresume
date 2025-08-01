@@ -4,10 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.ic_programming
 import myresume.composeapp.generated.resources.name
@@ -18,24 +18,21 @@ import org.smb.resume.ui.fonts.spaceMonoFont
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_inverse
+import org.smb.resume.utils.observeWindowSize
 
 @Composable
 fun HeaderMobileView(modifier: Modifier = Modifier) {
+
+    val (_, screenHeight) = observeWindowSize()
+
     Column(
-        modifier = modifier.padding(horizontal = Spacing.spacingLarge)
+        modifier = modifier.height(screenHeight.dp).padding(horizontal = Spacing.spacingLarge)
     ) {
-        NameSection(
-            modifier = Modifier.weight(weight = 1f)
+        NameSection()
+        Image(
+            painter = painterResource(Res.drawable.ic_programming),
+            contentDescription = null
         )
-        Box(
-            modifier = Modifier.weight(weight = 2f).fillMaxHeight()
-        ) {
-            Image(
-                modifier = Modifier.align(Alignment.Center),
-                painter = painterResource(Res.drawable.ic_programming),
-                contentDescription = null
-            )
-        }
     }
 }
 

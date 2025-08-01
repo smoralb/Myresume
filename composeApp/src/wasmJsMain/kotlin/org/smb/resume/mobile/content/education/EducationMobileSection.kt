@@ -11,7 +11,7 @@ import org.smb.resume.ui.components.GridItemView
 import org.smb.resume.ui.theme.Spacing
 
 @Composable
-fun EducationSection() {
+fun EducationMobileSection() {
     HeaderSectionView(title = Res.string.content_studies_title)
 
     Row(
