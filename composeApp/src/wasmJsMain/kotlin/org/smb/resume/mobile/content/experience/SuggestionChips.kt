@@ -1,4 +1,4 @@
-package org.smb.resume.desktop.content.experience
+package org.smb.resume.mobile.content.experience
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.FlowRow

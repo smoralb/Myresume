@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.ic_not_found
 import org.jetbrains.compose.resources.painterResource
-import org.smb.resume.desktop.content.model.ExperienceUiModel
+import org.smb.resume.common.experience.ExperienceUiModel
 import org.smb.resume.ui.theme.*
 
 @Composable

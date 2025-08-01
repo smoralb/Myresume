@@ -11,7 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
-import org.smb.resume.desktop.content.model.StudiesUiModel
+import org.jetbrains.compose.resources.stringResource
+import org.smb.resume.common.studies.StudiesUiModel
 import org.smb.resume.ui.theme.Elevation
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
@@ -28,7 +29,7 @@ fun GridItemView(modifier: Modifier = Modifier, item: StudiesUiModel) {
             containerColor = color_inverse
         ),
         content = {
-            Row (modifier = Modifier.height(IntrinsicSize.Max)) {
+            Row(modifier = Modifier.height(IntrinsicSize.Max)) {
                 item.logoUrl?.let {
                     Image(
                         modifier = Modifier
@@ -45,11 +46,11 @@ fun GridItemView(modifier: Modifier = Modifier, item: StudiesUiModel) {
                     verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
                 ) {
                     Text(
-                        text = item.name,
+                        text = stringResource(item.name),
                         style = Typography().titleLarge
                     )
                     Text(
-                        text = item.degree,
+                        text = stringResource(item.degree),
                         style = Typography().titleMedium
                     )
                 }

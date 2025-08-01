@@ -1,4 +1,4 @@
-package org.smb.resume.desktop.content.experience
+package org.smb.resume.mobile.content.experience
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager

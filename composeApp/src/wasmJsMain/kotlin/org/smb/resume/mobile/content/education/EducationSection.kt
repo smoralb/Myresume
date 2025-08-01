@@ -1,4 +1,4 @@
-package org.smb.resume.desktop.content.education
+package org.smb.resume.mobile.content.education
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -9,7 +9,6 @@ import org.smb.resume.common.studies.getStudies
 import org.smb.resume.desktop.content.header.HeaderSectionView
 import org.smb.resume.ui.components.GridItemView
 import org.smb.resume.ui.theme.Spacing
-
 
 @Composable
 fun EducationSection() {
