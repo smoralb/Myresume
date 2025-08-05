@@ -7,14 +7,14 @@ import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.content_studies_title
 import org.smb.resume.common.studies.getStudies
 import org.smb.resume.desktop.content.header.HeaderSectionView
-import org.smb.resume.ui.components.GridItemView
+import org.smb.resume.ui.components.EducationItemCard
 import org.smb.resume.ui.theme.Spacing
 
 @Composable
 fun EducationMobileSection() {
     HeaderSectionView(title = Res.string.content_studies_title)
 
-    Row(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
@@ -22,12 +22,10 @@ fun EducationMobileSection() {
                 horizontal = Spacing.spacingLarge
             )
             .height(IntrinsicSize.Max),
-        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
     ) {
         getStudies().forEach { studyItem ->
-            GridItemView(
-                modifier = Modifier.weight(1f).fillMaxHeight(), item = studyItem
-            )
+            EducationItemCard(item = studyItem)
         }
     }
 }

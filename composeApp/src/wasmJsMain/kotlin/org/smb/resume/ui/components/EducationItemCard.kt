@@ -19,7 +19,7 @@ import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_inverse
 
 @Composable
-fun GridItemView(modifier: Modifier = Modifier, item: StudiesUiModel) {
+fun EducationItemCard(modifier: Modifier = Modifier, item: StudiesUiModel) {
     ElevatedCard(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(
@@ -29,7 +29,7 @@ fun GridItemView(modifier: Modifier = Modifier, item: StudiesUiModel) {
             containerColor = color_inverse
         ),
         content = {
-            Row(modifier = Modifier.height(IntrinsicSize.Max)) {
+            Row {
                 item.logoUrl?.let {
                     Image(
                         modifier = Modifier

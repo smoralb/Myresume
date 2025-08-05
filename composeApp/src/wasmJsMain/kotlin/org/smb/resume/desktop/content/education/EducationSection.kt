@@ -7,7 +7,7 @@ import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.content_studies_title
 import org.smb.resume.common.studies.getStudies
 import org.smb.resume.desktop.content.header.HeaderSectionView
-import org.smb.resume.ui.components.GridItemView
+import org.smb.resume.ui.components.EducationItemCard
 import org.smb.resume.ui.theme.Spacing
 
 
@@ -26,7 +26,7 @@ fun EducationSection() {
         horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
     ) {
         getStudies().forEach { studyItem ->
-            GridItemView(
+            EducationItemCard(
                 modifier = Modifier.weight(1f).fillMaxHeight(), item = studyItem
             )
         }
