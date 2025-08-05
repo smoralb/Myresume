@@ -17,7 +17,7 @@ import org.smb.resume.ui.theme.color_light_blue
 fun SuggestionChips(description: TechDescription) {
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(Spacing.spacingSmall),
-        verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingExtraSmall)
     ) {
         description.description.split(",").forEach { technology ->
             SuggestionChip(

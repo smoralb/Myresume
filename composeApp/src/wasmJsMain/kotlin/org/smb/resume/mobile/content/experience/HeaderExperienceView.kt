@@ -3,7 +3,6 @@ package org.smb.resume.mobile.content.experience
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,9 +17,9 @@ import org.smb.resume.ui.theme.Typography
 
 @Composable
 fun HeaderExperienceView(itemExperience: ExperienceUiModel) {
-    Row(
-        verticalAlignment = Alignment.Top,
-        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge)
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
+        horizontalAlignment = Alignment.Start
     ) {
         Image(
             modifier = Modifier.size(150.dp),
@@ -29,12 +28,8 @@ fun HeaderExperienceView(itemExperience: ExperienceUiModel) {
             contentDescription = null,
             contentScale = ContentScale.Fit
         )
-        Column(
-            modifier = Modifier.align(Alignment.CenterVertically),
-            verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
-        ) {
-            Text(text = itemExperience.role, style = Typography().titleLarge)
-            Text(text = itemExperience.date, style = Typography().titleMedium)
-        }
+        Text(text = itemExperience.role, style = Typography().titleLarge)
+        Text(text = itemExperience.date, style = Typography().titleMedium)
+
     }
 }

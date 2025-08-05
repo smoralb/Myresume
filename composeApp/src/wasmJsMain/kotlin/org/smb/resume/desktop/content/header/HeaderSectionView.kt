@@ -5,12 +5,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.fonts.spaceMonoFont
@@ -31,12 +33,14 @@ fun HeaderSectionView(title: StringResource) {
         Text(
             text = "-", style = Typography().headlineMedium, fontFamily = spaceMonoFont(), color = Color.Green
         )
-        Text(
-            modifier = Modifier.padding(horizontal = Spacing.spacingMedium),
+        BasicText(
             text = stringResource(title),
-            color = color_inverse,
-            style = Typography().displayMedium,
-            textAlign = TextAlign.Center
+            color = { color_inverse },
+            autoSize = TextAutoSize.StepBased(
+                minFontSize = Typography().displayLarge.fontSize,
+                maxFontSize = Typography().displaySmall.fontSize,
+                stepSize = 10.sp
+            )
         )
         Text(
             text = "-", style = Typography().headlineMedium, fontFamily = spaceMonoFont(), color = Color.Green
