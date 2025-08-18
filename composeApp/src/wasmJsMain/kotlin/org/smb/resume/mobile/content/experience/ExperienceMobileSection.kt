@@ -1,24 +1,24 @@
 package org.smb.resume.mobile.content.experience
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.content_title
-import org.smb.resume.common.experience.TechDescription
+import org.jetbrains.compose.resources.painterResource
+import org.smb.resume.common.experience.ExperienceUiModel
 import org.smb.resume.common.experience.getExperiences
 import org.smb.resume.desktop.content.header.HeaderSectionView
 import org.smb.resume.ui.theme.Spacing
@@ -29,55 +29,40 @@ import org.smb.resume.ui.theme.color_inverse
 fun ExperienceMobileSection() {
 
     val experiences = getExperiences()
-    val pagerState = rememberPagerState(initialPage = 0, pageCount = { experiences.size })
-
-    val indexToShow = remember {
-        derivedStateOf {
-            pagerState.currentPage
-        }
-    }
 
     HeaderSectionView(title = Res.string.content_title)
-
-    HorizontalPager(
-        state = pagerState,
-        pageSpacing = Spacing.spacingLarge,
-        contentPadding = PaddingValues(horizontal = Spacing.spacingMedium)
-    ) { pageIndex ->
-        val itemExperience = remember { experiences[pageIndex] }
-
-        OutlinedCard(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(
-                containerColor = color_inverse,
-                contentColor = Color.Black
-            )
-        ) {
-            Column(modifier = Modifier.padding(all = Spacing.spacingLarge)) {
-                HeaderExperienceView(itemExperience)
-                HorizontalDivider(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(all = Spacing.spacingMedium)
+    Column {
+        experiences.forEach {
+            OutlinedCard(
+                modifier = Modifier.fillMaxWidth().padding(all = Spacing.spacingLarge),
+                colors = CardDefaults.cardColors(
+                    containerColor = color_inverse,
+                    contentColor = Color.Black
                 )
-                experiences[indexToShow.value].jobDescription.forEach {
-                    Column {
-                        Text(
-                            modifier = Modifier.padding(vertical = Spacing.spacingSmall),
-                            text = it.title,
-                            style = Typography().titleLarge,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        when (it) {
-                            is TechDescription -> SuggestionChips(it)
-                            else -> Text(
-                                text = it.description,
-                                style = Typography().bodyLarge
-                            )
-                        }
-                    }
+            ) {
+                Column(modifier = Modifier.padding(all = Spacing.spacingLarge)) {
+                    HeaderMobileExperienceView(it)
                 }
             }
         }
+    }
+}
+
+@Composable
+fun HeaderMobileExperienceView(itemExperience: ExperienceUiModel) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
+        horizontalAlignment = Alignment.Start
+    ) {
+        Image(
+            modifier = Modifier.size(80.dp).align(Alignment.CenterHorizontally),
+            painter = painterResource(itemExperience.logoUrl),
+            alignment = Alignment.Center,
+            contentDescription = null,
+            contentScale = ContentScale.Fit
+        )
+        Text(text = itemExperience.role, style = Typography().titleLarge)
+        Text(text = itemExperience.date, style = Typography().titleMedium)
+
     }
 }
