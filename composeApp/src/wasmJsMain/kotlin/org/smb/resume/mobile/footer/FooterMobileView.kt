@@ -19,7 +19,7 @@ import org.smb.resume.ui.theme.*
 @Composable
 fun FooterMobileView(modifier: Modifier = Modifier) {
     Surface(
-        modifier = modifier.fillMaxWidth().padding(top = Spacing.spacingLarge),
+        modifier = modifier.fillMaxWidth(),
         shadowElevation = Elevation.elevationLarge,
         color = color_grey,
         contentColor = color_inverse

@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
@@ -33,8 +34,8 @@ fun HeaderExperienceView(itemExperience: ExperienceUiModel) {
             modifier = Modifier.align(Alignment.CenterVertically),
             verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
         ) {
-            Text(text = itemExperience.role, style = Typography().titleLarge)
-            Text(text = itemExperience.date, style = Typography().titleMedium)
+            Text(text = itemExperience.role, style = Typography().titleLarge, color = Color.Black)
+            Text(text = itemExperience.date, style = Typography().titleMedium, color = Color.Black)
         }
     }
 }

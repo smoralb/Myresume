@@ -1,7 +1,11 @@
 package org.smb.resume.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
@@ -29,31 +33,30 @@ fun EducationItemCard(modifier: Modifier = Modifier, item: StudiesUiModel) {
             containerColor = color_inverse
         ),
         content = {
-            Row {
+            Column(
+                modifier = Modifier.fillMaxWidth().padding(all = Spacing.spacingLarge),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
+            ) {
                 item.logoUrl?.let {
                     Image(
                         modifier = Modifier
                             .size(100.dp)
-                            .padding(all = Spacing.spacingLarge),
+                            .padding(vertical = Spacing.spacingLarge),
                         painter = painterResource(it),
                         alignment = Alignment.Center,
                         contentDescription = null,
                         contentScale = ContentScale.Fit
                     )
                 }
-                Column(
-                    modifier = Modifier.padding(all = Spacing.spacingMedium),
-                    verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
-                ) {
-                    Text(
-                        text = stringResource(item.name),
-                        style = Typography().titleLarge
-                    )
-                    Text(
-                        text = stringResource(item.degree),
-                        style = Typography().titleMedium
-                    )
-                }
+                Text(
+                    text = stringResource(item.name),
+                    style = Typography().titleLarge
+                )
+                Text(
+                    text = stringResource(item.degree),
+                    style = Typography().titleMedium
+                )
             }
         }
     )

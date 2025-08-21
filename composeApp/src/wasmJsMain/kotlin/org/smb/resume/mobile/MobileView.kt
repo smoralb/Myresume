@@ -6,6 +6,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import org.smb.resume.mobile.contact.ContactMobileSection
 import org.smb.resume.mobile.content.ContentMobileView
 import org.smb.resume.mobile.footer.FooterMobileView
 import org.smb.resume.mobile.header.HeaderMobileView
@@ -18,6 +19,7 @@ fun MobileView() {
         ContentMobileView(
             modifier = Modifier.background(color = color_inverse)
         )
+        ContactMobileSection()
         FooterMobileView()
     }
 
