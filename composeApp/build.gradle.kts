@@ -44,4 +44,26 @@ kotlin {
     }
 }
 
+tasks.register<Copy>("publishWasmToDocs") {
+    group = "kotlin browser"
+    description = "Genera el bundle WASM y copia los artefactos al directorio /docs conservando CNAME"
+
+    dependsOn(tasks.named("wasmJsBrowserDistribution"))
+
+    val docsDir = project.rootDir.resolve("docs")
+
+    // Primero limpiar todo excepto CNAME
+    doFirst {
+        docsDir.listFiles()
+            ?.filter { it.name != "CNAME" }
+            ?.forEach { file ->
+                if (file.isDirectory) file.deleteRecursively() else file.delete()
+            }
+    }
+
+    // Copiar nuevos artefactos
+    from(layout.buildDirectory.dir("dist/wasmJs/productionExecutable"))
+    into(docsDir)
+}
+
 
