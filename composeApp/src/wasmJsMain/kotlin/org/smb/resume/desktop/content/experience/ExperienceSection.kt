@@ -1,5 +1,7 @@
 package org.smb.resume.desktop.content.experience
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -7,15 +9,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.content_title
-import myresume.composeapp.generated.resources.ic_arrow_backward
-import myresume.composeapp.generated.resources.ic_arrow_forward
 import org.jetbrains.compose.resources.painterResource
 import org.smb.resume.common.experience.TechDescription
 import org.smb.resume.common.experience.getExperiences
@@ -23,7 +24,9 @@ import org.smb.resume.desktop.content.header.HeaderSectionView
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_inverse
+import org.smb.resume.ui.theme.color_tomato
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExperienceSection() {
 
@@ -39,50 +42,55 @@ fun ExperienceSection() {
         indexToShow.value = pagerState.currentPage
     }
 
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(Spacing.spacingSmall),
-        verticalAlignment = Alignment.CenterVertically
+    Column(
+        modifier = Modifier.padding(horizontal = Spacing.spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
     ) {
-        val canGoBack = pagerState.currentPage > 0
-        val canGoForward = pagerState.currentPage < experiences.size - 1
-
-        IconButton(
-            modifier = Modifier.size(50.dp).weight(1f),
-            onClick = {
-                if (canGoBack) {
-                    coroutineScope.launch {
-                        pagerState.animateScrollToPage(pagerState.currentPage - 1)
-                    }
-                }
+        PrimaryTabRow(
+            modifier = Modifier.fillMaxWidth(),
+            selectedTabIndex = indexToShow.value,
+            containerColor = color_inverse,
+            indicator = {
+                TabRowDefaults.PrimaryIndicator(
+                    modifier = Modifier.tabIndicatorOffset(indexToShow.value, matchContentSize = true),
+                    width = Dp.Unspecified,
+                    color = color_tomato
+                )
             },
-            enabled = canGoBack
-        ) {
-            Icon(
-                painter = painterResource(Res.drawable.ic_arrow_backward),
-                contentDescription = "Anterior",
-                tint = Color.Black,
-                modifier = Modifier.alpha(if (canGoBack) 1f else 0.3f)
-            )
-        }
+            divider = {
 
+            },
+            tabs = {
+                experiences.forEachIndexed { index, model ->
+                    Image(
+                        modifier = Modifier.height(80.dp)
+                            .clickable {
+                                coroutineScope.launch {
+                                    pagerState.animateScrollToPage(index)
+                                }
+                            },
+                        painter = painterResource(model.logoUrl),
+                        alignment = Alignment.Center,
+                        contentDescription = null,
+                        contentScale = ContentScale.Fit
+                    )
+                }
+            }
+        )
         HorizontalPager(
-            modifier = Modifier.weight(4f),
+            modifier = Modifier,
             state = pagerState,
             pageSpacing = Spacing.spacingLarge
         ) { pageIndex ->
             val itemExperience = remember { experiences[pageIndex] }
 
             OutlinedCard(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = Spacing.spacingMedium),
                 colors = CardDefaults.cardColors(containerColor = color_inverse)
             ) {
                 Column(modifier = Modifier.padding(all = Spacing.spacingLarge)) {
-                    HeaderExperienceView(itemExperience)
-                    HorizontalDivider(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(all = Spacing.spacingMedium)
-                    )
+                    Text(text = itemExperience.role, style = Typography().titleLarge, color = Color.Black)
+                    Text(text = itemExperience.date, style = Typography().titleMedium, color = Color.Black)
                     experiences[indexToShow.value].jobDescription.forEach {
                         Column {
                             Text(
@@ -102,25 +110,6 @@ fun ExperienceSection() {
                     }
                 }
             }
-        }
-
-        IconButton(
-            modifier = Modifier.size(50.dp).weight(1f),
-            onClick = {
-                if (canGoForward) {
-                    coroutineScope.launch {
-                        pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                    }
-                }
-            },
-            enabled = canGoForward
-        ) {
-            Icon(
-                painter = painterResource(Res.drawable.ic_arrow_forward),
-                contentDescription = "Siguiente",
-                tint = Color.Black,
-                modifier = Modifier.alpha(if (canGoForward) 1f else 0.3f)
-            )
         }
     }
 }
