@@ -20,7 +20,7 @@ import myresume.composeapp.generated.resources.content_title
 import org.jetbrains.compose.resources.painterResource
 import org.smb.resume.common.experience.ExperienceUiModel
 import org.smb.resume.common.experience.getExperiences
-import org.smb.resume.desktop.content.header.HeaderSectionView
+import org.smb.resume.mobile.content.header.HeaderSectionView
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_inverse

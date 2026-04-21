@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import myresume.composeapp.generated.resources.Res
 import myresume.composeapp.generated.resources.content_studies_title
 import org.smb.resume.common.studies.getStudies
-import org.smb.resume.desktop.content.header.HeaderSectionView
+import org.smb.resume.mobile.content.header.HeaderSectionView
 import org.smb.resume.ui.components.EducationItemCard
 import org.smb.resume.ui.theme.Spacing
 
