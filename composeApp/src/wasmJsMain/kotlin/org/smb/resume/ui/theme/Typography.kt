@@ -5,99 +5,105 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import org.smb.resume.ui.fonts.montserratFamily
+import org.smb.resume.ui.fonts.interFamily
+import org.smb.resume.ui.fonts.outfitFamily
 
 @Composable
 fun Typography() = Typography().run {
-    val montserratFamily = montserratFamily()
+    val outfit = outfitFamily()
+    val inter = interFamily()
 
     copy(
         displayLarge = TextStyle(
-            fontSize = 100.sp,
-            fontWeight = FontWeight.ExtraBold,
-            fontFamily = montserratFamily
+            fontSize = 180.sp,
+            fontWeight = FontWeight.Black,
+            fontFamily = outfit,
+            letterSpacing = (-8).sp,
+            lineHeight = (180 * 0.85).sp
         ),
         displayMedium = TextStyle(
-            fontSize = 54.sp,
-            fontWeight = FontWeight.ExtraBold,
-            fontFamily = montserratFamily
+            fontSize = 96.sp,
+            fontWeight = FontWeight.Black,
+            fontFamily = outfit,
+            letterSpacing = (-4).sp,
+            lineHeight = (96 * 0.9).sp
         ),
         displaySmall = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 36.sp,
-            lineHeight = 44.sp
+            fontFamily = outfit,
+            fontWeight = FontWeight.Black,
+            fontSize = 48.sp,
+            letterSpacing = (-2).sp
         ),
         headlineLarge = TextStyle(
-            fontSize = 54.sp,
-            fontWeight = FontWeight.SemiBold,
-            fontFamily = montserratFamily
+            fontSize = 48.sp,
+            fontWeight = FontWeight.ExtraBold,
+            fontFamily = outfit,
+            letterSpacing = (-1).sp,
+            lineHeight = 48.sp
         ),
         headlineMedium = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 36.sp,
-            lineHeight = 44.sp
+            fontFamily = outfit,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 28.sp,
+            letterSpacing = (-0.5).sp
         ),
         headlineSmall = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 28.sp,
-            lineHeight = 36.sp
+            fontFamily = outfit,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 24.sp
         ),
         titleLarge = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 22.sp,
-            lineHeight = 28.sp
+            fontFamily = outfit,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 20.sp
         ),
         titleMedium = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 16.sp,
-            lineHeight = 24.sp
+            fontFamily = inter,
+            fontWeight = FontWeight.Normal,
+            fontSize = 18.sp,
+            lineHeight = (18 * 1.6).sp
         ),
         titleSmall = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 14.sp,
-            lineHeight = 20.sp
-        ),
-        bodyLarge = TextStyle(
-            fontFamily = montserratFamily,
+            fontFamily = inter,
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
-            lineHeight = 24.sp
+            lineHeight = (16 * 1.5).sp
+        ),
+        bodyLarge = TextStyle(
+            fontFamily = inter,
+            fontWeight = FontWeight.Normal,
+            fontSize = 18.sp,
+            lineHeight = (18 * 1.5).sp
         ),
         bodyMedium = TextStyle(
-            fontFamily = montserratFamily,
+            fontFamily = inter,
             fontWeight = FontWeight.Normal,
-            fontSize = 14.sp,
-            lineHeight = 20.sp
+            fontSize = 16.sp,
+            lineHeight = (16 * 1.5).sp
         ),
         bodySmall = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.Light,
-            fontSize = 12.sp,
-            lineHeight = 16.sp
+            fontFamily = inter,
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+            lineHeight = (14 * 1.5).sp
         ),
         labelLarge = TextStyle(
-            fontFamily = montserratFamily,
+            fontFamily = outfit,
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
-            lineHeight = 20.sp
+            letterSpacing = 4.sp
         ),
         labelMedium = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.Normal,
+            fontFamily = outfit,
+            fontWeight = FontWeight.Medium,
             fontSize = 12.sp,
-            lineHeight = 16.sp
+            letterSpacing = 2.sp
         ),
         labelSmall = TextStyle(
-            fontFamily = montserratFamily,
-            fontWeight = FontWeight.Light,
-            fontSize = 10.sp,
-            lineHeight = 12.sp
+            fontFamily = outfit,
+            fontWeight = FontWeight.Medium,
+            fontSize = 11.sp,
+            letterSpacing = 2.sp
         )
     )
 }

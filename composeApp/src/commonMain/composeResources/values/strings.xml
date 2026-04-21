@@ -12,7 +12,34 @@
     <string name="multiPlatform">KMM (WIP)</string>
     <string name="swift">Swift (WIP)</string>
 
-    <!-- Experience -->
+    <!-- Nav -->
+    <string name="nav_about">ABOUT</string>
+    <string name="nav_experience">EXPERIENCE</string>
+    <string name="nav_projects">PROJECTS</string>
+    <string name="nav_contact">CONTACT</string>
+
+    <!-- Hero -->
+    <string name="hero_label">ANDROID DEVELOPER</string>
+    <string name="hero_name_1">SERGIO</string>
+    <string name="hero_name_2">MORAL</string>
+    <string name="hero_desc">Building robust mobile experiences
+with clean architecture and Kotlin.</string>
+    <string name="hero_scroll">SCROLL ↓</string>
+
+    <!-- About -->
+    <string name="about_label">01 — ABOUT</string>
+    <string name="about_title">Building things
+that matter.</string>
+    <string name="about_p1">I'm an Android developer based in Spain with a passion for crafting elegant, performant mobile applications. I specialize in Kotlin, Jetpack Compose, and clean architecture patterns.</string>
+    <string name="about_p2">With years of experience in the industry, I've worked on apps that serve millions of users. I believe in writing code that is not only functional but also maintainable and scalable.</string>
+    <string name="about_stat1_num">5+</string>
+    <string name="about_stat1_label">YEARS EXP.</string>
+    <string name="about_stat2_num">20+</string>
+    <string name="about_stat2_label">PROJECTS</string>
+    <string name="about_stat3_num">1M+</string>
+    <string name="about_stat3_label">USERS</string>
+
+    <!-- Experience (legacy) -->
     <string name="content_timeline_present">Present</string>
     <string name="content_timeline_start">Start</string>
     <string name="content_scope">Scope</string>
@@ -107,7 +134,71 @@
         - Supported iOS development using Swift and UIKit and Swift UI.
     </string>
 
-    <!-- Studies -->
+    <!-- Experience (new design) -->
+    <string name="exp_label">02 — EXPERIENCE</string>
+    <string name="exp_title">Where I've
+worked.</string>
+    <string name="exp_job1_year">2022 — PRESENT</string>
+    <string name="exp_job1_title">Apps Developer</string>
+    <string name="exp_job1_company">idealista / yaencontre</string>
+    <string name="exp_job1_desc">Android developer for a high-traffic consumer app with 300k+ active users, focused on performance, UX, and migration to modern UI frameworks.</string>
+    <string name="exp_job2_year">2019 — 2021</string>
+    <string name="exp_job2_title">Android Developer</string>
+    <string name="exp_job2_company">Openbank</string>
+    <string name="exp_job2_desc">Worked on the Openbank client app, developing new features, maintaining code quality, and ensuring app stability with 90%+ test coverage.</string>
+    <string name="exp_job3_year">2018 — 2019</string>
+    <string name="exp_job3_title">Android Developer</string>
+    <string name="exp_job3_company">iphonedroid</string>
+    <string name="exp_job3_desc">Led Android development for clients in retail and consumer goods. Main project: Leroy Merlin app.</string>
+    <string name="exp_job4_year">2018 — 2018</string>
+    <string name="exp_job4_title">Software Developer</string>
+    <string name="exp_job4_company">Accenture</string>
+    <string name="exp_job4_desc">Worked on both Android and web development tasks, including architecture planning and technical documentation.</string>
+    <string name="exp_job5_year">2018 — 2018</string>
+    <string name="exp_job5_title">Android Developer</string>
+    <string name="exp_job5_company">TalentoMobile</string>
+    <string name="exp_job5_desc">Contributed to projects across the banking and document recognition sectors. Main project: Santander Chile app.</string>
+    <string name="exp_job6_year">2017 — 2018</string>
+    <string name="exp_job6_title">Android Developer (Internship)</string>
+    <string name="exp_job6_company">Babel</string>
+    <string name="exp_job6_desc">Led and collaborated on various Android projects using Java and Kotlin. Main project: Social security app.</string>
+
+    <!-- Projects -->
+    <string name="proj_label">03 — PROJECTS</string>
+    <string name="proj_title">Selected
+work.</string>
+    <string name="proj_card1_tag">ANDROID / KOTLIN / COMPOSE</string>
+    <string name="proj_card1_title">Real Estate App</string>
+    <string name="proj_card1_desc">A property search platform serving millions of users. Built with Jetpack Compose and clean architecture.</string>
+    <string name="proj_card1_link">VIEW PROJECT →</string>
+    <string name="proj_card2_tag">ANDROID / MVVM / HILT</string>
+    <string name="proj_card2_title">Fitness Tracker</string>
+    <string name="proj_card2_desc">A health and fitness companion app with real-time data sync, custom workout plans, and progress analytics.</string>
+    <string name="proj_card2_link">VIEW PROJECT →</string>
+
+    <!-- Education (new design) labels updated below -->
+
+    <!-- Contact -->
+    <string name="contact_label">05 — CONTACT</string>
+    <string name="contact_title">Let's build
+something
+together.</string>
+    <string name="contact_email">hello@sergiomoralbermudez.com</string>
+    <string name="contact_cta">GET IN TOUCH</string>
+    <string name="contact_social_github">GITHUB</string>
+    <string name="contact_social_linkedin">LINKEDIN</string>
+    <string name="contact_social_twitter">TWITTER</string>
+
+    <!-- Education (new design) -->
+    <string name="edu_label">04 — EDUCATION</string>
+    <string name="edu_title">Where I've
+learned.</string>
+    <string name="edu_1_name">Universidad Politécnica de Madrid</string>
+    <string name="edu_1_degree">Android App Development (200hrs)</string>
+    <string name="edu_2_name">Coursera</string>
+    <string name="edu_2_degree">Kotlin for Java Developers by JetBrains</string>
+
+    <!-- Studies (legacy) -->
     <string name="content_studies_title">My education</string>
     <string name="content_etsisi">Universidad Politécnica de Madrid</string>
     <string name="content_etsisi_degree">Software Engineering, Software Engineering</string>
@@ -121,8 +212,10 @@
     <!-- Footer -->
     <string name="footer_language">Website made with Compose Multiplatform</string>
     <string name="footer_year">@2025</string>
+    <string name="footer_copyright">© 2025 Sergio Moral Bermúdez</string>
+    <string name="footer_tagline">Designed with purpose.</string>
 
-    <!-- Contact -->
+    <!-- Contact (legacy) -->
     <string name="contact_socials">ME</string>
     <string name="contact_socials_linkedin">LINKEDIN</string>
     <string name="contact_socials_github">GITHUB</string>

@@ -1,115 +1,143 @@
 package org.smb.resume.desktop.content.experience
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.launch
-import myresume.composeapp.generated.resources.Res
-import myresume.composeapp.generated.resources.content_title
-import org.jetbrains.compose.resources.painterResource
-import org.smb.resume.common.experience.TechDescription
-import org.smb.resume.common.experience.getExperiences
-import org.smb.resume.desktop.content.header.HeaderSectionView
-import org.smb.resume.ui.theme.Spacing
-import org.smb.resume.ui.theme.Typography
-import org.smb.resume.ui.theme.color_inverse
-import org.smb.resume.ui.theme.color_tomato
+import myresume.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
+import org.smb.resume.ui.theme.*
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ExperienceSection() {
-
-    val coroutineScope = rememberCoroutineScope()
-    val experiences = getExperiences()
-    val indexToShow = remember { mutableStateOf(0) }
-
-    HeaderSectionView(title = Res.string.content_title)
-
-    val pagerState = rememberPagerState(initialPage = 0, pageCount = { experiences.size })
-
-    LaunchedEffect(pagerState.currentPage) {
-        indexToShow.value = pagerState.currentPage
-    }
-
+fun ExperienceSection(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier.padding(horizontal = Spacing.spacingMedium),
-        verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+        modifier = modifier
+            .fillMaxWidth()
+            .background(color_black)
+            .padding(vertical = 100.dp, horizontal = 80.dp),
+        verticalArrangement = Arrangement.spacedBy(60.dp)
     ) {
-        PrimaryTabRow(
+        // Header
+        Row(
             modifier = Modifier.fillMaxWidth(),
-            selectedTabIndex = indexToShow.value,
-            containerColor = color_inverse,
-            indicator = {
-                TabRowDefaults.PrimaryIndicator(
-                    modifier = Modifier.tabIndicatorOffset(indexToShow.value, matchContentSize = true),
-                    width = Dp.Unspecified,
-                    color = color_tomato
-                )
-            },
-            divider = {
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.Bottom
+        ) {
+            Text(
+                text = stringResource(Res.string.exp_label),
+                style = Typography().labelMedium.copy(fontWeight = FontWeight.Bold),
+                color = color_white
+            )
+            Text(
+                text = stringResource(Res.string.exp_title),
+                style = Typography().headlineLarge,
+                color = color_white,
+                textAlign = TextAlign.End
+            )
+        }
 
-            },
-            tabs = {
-                experiences.forEachIndexed { index, model ->
-                    Image(
-                        modifier = Modifier.height(80.dp)
-                            .clickable {
-                                coroutineScope.launch {
-                                    pagerState.animateScrollToPage(index)
-                                }
-                            },
-                        painter = painterResource(model.logoUrl),
-                        alignment = Alignment.Center,
-                        contentDescription = null,
-                        contentScale = ContentScale.Fit
-                    )
-                }
-            }
-        )
-        HorizontalPager(
-            modifier = Modifier,
-            state = pagerState,
-            pageSpacing = Spacing.spacingLarge
-        ) { pageIndex ->
-            val itemExperience = remember { experiences[pageIndex] }
-
-            OutlinedCard(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = Spacing.spacingMedium),
-                colors = CardDefaults.cardColors(containerColor = color_inverse)
-            ) {
-                Column(modifier = Modifier.padding(all = Spacing.spacingLarge)) {
-                    Text(text = itemExperience.role, style = Typography().titleLarge, color = Color.Black)
-                    Text(text = itemExperience.date, style = Typography().titleMedium, color = Color.Black)
-                    experiences[indexToShow.value].jobDescription.forEach {
-                        Column {
-                            Text(
-                                modifier = Modifier.padding(vertical = Spacing.spacingSmall),
-                                text = it.title,
-                                style = Typography().titleLarge,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                            when (it) {
-                                is TechDescription -> SuggestionChips(it)
-                                else -> Text(
-                                    text = it.description,
-                                    style = Typography().bodyLarge
-                                )
-                            }
-                        }
-                    }
-                }
-            }
+        // Job list
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Divider()
+            JobEntry(
+                year = stringResource(Res.string.exp_job1_year),
+                title = stringResource(Res.string.exp_job1_title),
+                company = stringResource(Res.string.exp_job1_company),
+                description = stringResource(Res.string.exp_job1_desc)
+            )
+            Divider()
+            JobEntry(
+                year = stringResource(Res.string.exp_job2_year),
+                title = stringResource(Res.string.exp_job2_title),
+                company = stringResource(Res.string.exp_job2_company),
+                description = stringResource(Res.string.exp_job2_desc)
+            )
+            Divider()
+            JobEntry(
+                year = stringResource(Res.string.exp_job3_year),
+                title = stringResource(Res.string.exp_job3_title),
+                company = stringResource(Res.string.exp_job3_company),
+                description = stringResource(Res.string.exp_job3_desc)
+            )
+            Divider()
+            JobEntry(
+                year = stringResource(Res.string.exp_job4_year),
+                title = stringResource(Res.string.exp_job4_title),
+                company = stringResource(Res.string.exp_job4_company),
+                description = stringResource(Res.string.exp_job4_desc)
+            )
+            Divider()
+            JobEntry(
+                year = stringResource(Res.string.exp_job5_year),
+                title = stringResource(Res.string.exp_job5_title),
+                company = stringResource(Res.string.exp_job5_company),
+                description = stringResource(Res.string.exp_job5_desc)
+            )
+            Divider()
+            JobEntry(
+                year = stringResource(Res.string.exp_job6_year),
+                title = stringResource(Res.string.exp_job6_title),
+                company = stringResource(Res.string.exp_job6_company),
+                description = stringResource(Res.string.exp_job6_desc)
+            )
+            Divider()
         }
     }
+}
+
+@Composable
+private fun JobEntry(
+    year: String,
+    title: String,
+    company: String,
+    description: String
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 32.dp),
+        horizontalArrangement = Arrangement.spacedBy(40.dp)
+    ) {
+        Text(
+            text = year,
+            style = Typography().labelMedium,
+            color = color_zinc_500,
+            modifier = Modifier.width(200.dp)
+        )
+        Column(
+            modifier = Modifier.weight(1f),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Text(
+                text = title,
+                style = Typography().headlineSmall,
+                color = color_white
+            )
+            Text(
+                text = company,
+                style = Typography().bodyMedium,
+                color = color_zinc_500
+            )
+            Text(
+                text = description,
+                style = Typography().bodySmall,
+                color = color_zinc_400
+            )
+        }
+    }
+}
+
+@Composable
+private fun Divider() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(1.dp)
+            .background(color_zinc_800)
+    )
 }
