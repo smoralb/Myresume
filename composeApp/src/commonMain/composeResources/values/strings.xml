@@ -183,11 +183,11 @@ work.</string>
     <string name="contact_title">Let's build
 something
 together.</string>
-    <string name="contact_email">hello@sergiomoralbermudez.com</string>
+    <string name="contact_email">smoralber@gmail.com</string>
     <string name="contact_cta">GET IN TOUCH</string>
     <string name="contact_social_github">GITHUB</string>
     <string name="contact_social_linkedin">LINKEDIN</string>
-    <string name="contact_social_twitter">TWITTER</string>
+    
 
     <!-- Education (new design) -->
     <string name="edu_label">04 — EDUCATION</string>
