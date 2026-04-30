@@ -34,15 +34,6 @@ fun NavBar(modifier: Modifier = Modifier) {
             ),
             color = color_black
         )
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(40.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            val navStyle = Typography().labelMedium.copy(fontWeight = FontWeight.Medium)
-            Text(text = stringResource(Res.string.nav_about), style = navStyle, color = color_zinc_500)
-            Text(text = stringResource(Res.string.nav_experience), style = navStyle, color = color_zinc_500)
-            Text(text = stringResource(Res.string.nav_projects), style = navStyle, color = color_zinc_500)
-            Text(text = stringResource(Res.string.nav_contact), style = navStyle, color = color_zinc_500)
-        }
+        
     }
 }

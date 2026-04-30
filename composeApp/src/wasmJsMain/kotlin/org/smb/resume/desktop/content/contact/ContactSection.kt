@@ -47,7 +47,7 @@ fun ContactSection(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .background(color_white)
                 .clickable {
-                    window.open("mailto:hello@sergiomoralbermudez.com")
+                    window.open("mailto:smoralber@gmail.com")
                 }
                 .padding(vertical = 20.dp, horizontal = 48.dp),
             contentAlignment = Alignment.Center
@@ -75,11 +75,6 @@ fun ContactSection(modifier: Modifier = Modifier) {
                 style = Typography().labelMedium,
                 color = color_zinc_500,
                 modifier = Modifier.clickable { window.open("https://www.linkedin.com/in/sergiomoralbermudez/") }
-            )
-            Text(
-                text = stringResource(Res.string.contact_social_twitter),
-                style = Typography().labelMedium,
-                color = color_zinc_500
             )
         }
     }
