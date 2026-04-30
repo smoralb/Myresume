@@ -1,64 +1,62 @@
 package org.smb.resume.mobile.header
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import myresume.composeapp.generated.resources.Res
-import myresume.composeapp.generated.resources.ic_programming
-import myresume.composeapp.generated.resources.name
-import myresume.composeapp.generated.resources.role
-import org.jetbrains.compose.resources.painterResource
+import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
-import org.smb.resume.ui.fonts.spaceMonoFont
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
-import org.smb.resume.ui.theme.color_inverse
-import org.smb.resume.utils.observeWindowSize
+import org.smb.resume.ui.theme.color_black
+import org.smb.resume.ui.theme.color_zinc_400
+import org.smb.resume.ui.theme.color_zinc_500
 
 @Composable
 fun HeaderMobileView(modifier: Modifier = Modifier) {
-
-    val (_, screenHeight) = observeWindowSize()
-
     Column(
-        modifier = modifier.height(screenHeight.dp).padding(horizontal = Spacing.spacingLarge),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        NameSection()
-        Image(
-            painter = painterResource(Res.drawable.ic_programming),
-            contentDescription = null
-        )
-    }
-}
-
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-private fun NameSection(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier, verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = Spacing.spacingExtraLarge, horizontal = Spacing.spacingLarge),
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge)
     ) {
         Text(
-            text = stringResource(Res.string.name), style = Typography().displayLarge, fontFamily = spaceMonoFont()
+            text = stringResource(Res.string.hero_label),
+            style = Typography().labelLarge,
+            color = color_zinc_400
         )
-        Row(modifier = Modifier.padding(bottom = Spacing.spacingLarge).drawBehind { drawRect(color = Color.Black) }
-            .padding(vertical = Spacing.spacingSmall, horizontal = Spacing.spacingMedium),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingExtraSmall)) {
+        Text(
+            text = stringResource(Res.string.hero_name_1),
+            style = Typography().displayLarge,
+            color = color_black
+        )
+        Text(
+            text = stringResource(Res.string.hero_name_2),
+            style = Typography().displayLarge,
+            color = color_black
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.Bottom
+        ) {
             Text(
-                text = "\\", style = Typography().headlineMedium, fontFamily = spaceMonoFont(), color = Color.Green
-            )
-            Text(
-                text = stringResource(Res.string.role),
-                style = Typography().headlineMedium,
-                fontFamily = spaceMonoFont(),
-                color = color_inverse
+                text = stringResource(Res.string.hero_desc),
+                style = Typography().bodyMedium,
+                color = color_zinc_500,
+                modifier = Modifier.fillMaxWidth(0.8f)
             )
         }
+        Text(
+            text = stringResource(Res.string.hero_scroll),
+            style = Typography().labelMedium,
+            color = color_zinc_400
+        )
     }
 }
