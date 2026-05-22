@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,6 +18,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import org.smb.resume.common.projects.getProjects
+import org.smb.resume.ui.components.ProjectCard
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_black
@@ -45,30 +49,15 @@ fun ProjectsMobileSection(modifier: Modifier = Modifier) {
             )
         }
 
-        Surface(
+        // Projects Grid - 1 column for mobile
+        LazyVerticalGrid(
+            columns = androidx.compose.foundation.lazy.grid.GridCells.Fixed(1),
             modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(0.dp),
-            border = BorderStroke(2.dp, color_black)
+            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
+            verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = Spacing.spacingExtraLarge, horizontal = Spacing.spacingLarge),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
-            ) {
-                Text(
-                    text = "UNDER CONSTRUCTION",
-                    style = Typography().headlineSmall,
-                    color = color_black,
-                    textAlign = TextAlign.Center
-                )
-                Text(
-                    text = "Projects coming soon. Stay tuned.",
-                    style = Typography().bodyMedium,
-                    color = color_zinc_500,
-                    textAlign = TextAlign.Center
-                )
+            items(getProjects()) { project ->
+                ProjectCard(project = project)
             }
         }
     }

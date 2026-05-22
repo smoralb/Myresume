@@ -45,12 +45,6 @@ fun ContactMobileSection(modifier: Modifier = Modifier) {
             color = color_white,
             textAlign = TextAlign.Center
         )
-        Text(
-            text = stringResource(Res.string.contact_email),
-            style = Typography().bodyMedium.copy(letterSpacing = Typography().bodyMedium.letterSpacing),
-            color = color_zinc_400
-        )
-
         Column(
             modifier = Modifier
                 .background(color_white)

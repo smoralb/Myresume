@@ -175,6 +175,10 @@ work.</string>
     <string name="proj_card2_title">Fitness Tracker</string>
     <string name="proj_card2_desc">A health and fitness companion app with real-time data sync, custom workout plans, and progress analytics.</string>
     <string name="proj_card2_link">VIEW PROJECT →</string>
+    <string name="proj_card3_tag">KOTLIN / COMPOSE / WEB</string>
+    <string name="proj_card3_title">Resume App</string>
+    <string name="proj_card3_desc">A responsive portfolio built with Compose Multiplatform for web and mobile.</string>
+    <string name="proj_card3_link">VIEW PROJECT →</string>
 
     <!-- Education (new design) labels updated below -->
 

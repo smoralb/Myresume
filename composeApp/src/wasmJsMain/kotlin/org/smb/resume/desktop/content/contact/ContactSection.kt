@@ -36,12 +36,6 @@ fun ContactSection(modifier: Modifier = Modifier) {
             color = color_white,
             textAlign = TextAlign.Center
         )
-        Text(
-            text = stringResource(Res.string.contact_email),
-            style = Typography().titleMedium.copy(letterSpacing = Typography().titleMedium.letterSpacing),
-            color = color_zinc_400
-        )
-
         // CTA Button
         Box(
             modifier = Modifier
