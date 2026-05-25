@@ -22,14 +22,14 @@ fun getProjects(): List<ProjectUiModel> {
             linkText = Res.string.proj_card1_link
         ),
         ProjectUiModel(
-            imageUrl = Res.drawable.ic_android,
+            imageUrl = Res.drawable.ic_what_before,
             tag = Res.string.proj_card2_tag,
             title = Res.string.proj_card2_title,
             description = Res.string.proj_card2_desc,
             linkText = Res.string.proj_card2_link
         ),
         ProjectUiModel(
-            imageUrl = Res.drawable.ic_project_app,
+            imageUrl = Res.drawable.ic_old_pc,
             tag = Res.string.proj_card3_tag,
             title = Res.string.proj_card3_title,
             description = Res.string.proj_card3_desc,

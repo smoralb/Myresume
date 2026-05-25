@@ -36,23 +36,6 @@ fun ContactSection(modifier: Modifier = Modifier) {
             color = color_white,
             textAlign = TextAlign.Center
         )
-        // CTA Button
-        Box(
-            modifier = Modifier
-                .background(color_white)
-                .clickable {
-                    window.open("mailto:smoralber@gmail.com")
-                }
-                .padding(vertical = 20.dp, horizontal = 48.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = stringResource(Res.string.contact_cta),
-                style = Typography().labelMedium.copy(fontWeight = FontWeight.Bold, letterSpacing = Typography().labelLarge.letterSpacing),
-                color = color_black
-            )
-        }
-
         // Social links
         Row(
             horizontalArrangement = Arrangement.spacedBy(40.dp),

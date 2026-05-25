@@ -19,7 +19,7 @@
     <string name="nav_contact">CONTACT</string>
 
     <!-- Hero -->
-    <string name="hero_label">ANDROID DEVELOPER</string>
+    <string name="hero_label">APPS DEVELOPER</string>
     <string name="hero_name_1">SERGIO</string>
     <string name="hero_name_2">MORAL</string>
     <string name="hero_desc">Building robust mobile experiences
@@ -171,14 +171,14 @@ work.</string>
     <string name="proj_card1_title">Real Estate App</string>
     <string name="proj_card1_desc">A property search platform serving millions of users. Built with Jetpack Compose and clean architecture.</string>
     <string name="proj_card1_link">VIEW PROJECT →</string>
-    <string name="proj_card2_tag">ANDROID / MVVM / HILT</string>
-    <string name="proj_card2_title">Fitness Tracker</string>
-    <string name="proj_card2_desc">A health and fitness companion app with real-time data sync, custom workout plans, and progress analytics.</string>
+    <string name="proj_card2_tag">HTML5 / CSS3 / JAVASCRIPT</string>
+    <string name="proj_card2_title">What Before!</string>
+    <string name="proj_card2_desc">Un juego arcade de preguntas y respuestas donde pones a prueba tus conocimientos generales en partidas rápidas, divertidas y competitivas.</string>
     <string name="proj_card2_link">VIEW PROJECT →</string>
-    <string name="proj_card3_tag">KOTLIN / COMPOSE / WEB</string>
-    <string name="proj_card3_title">Resume App</string>
-    <string name="proj_card3_desc">A responsive portfolio built with Compose Multiplatform for web and mobile.</string>
-    <string name="proj_card3_link">VIEW PROJECT →</string>
+    <string name="proj_card3_tag">COMING SOON</string>
+    <string name="proj_card3_title">Under Construction</string>
+    <string name="proj_card3_desc">More projects on the way. Stay tuned!</string>
+    <string name="proj_card3_link">COMING SOON</string>
 
     <!-- Education (new design) labels updated below -->
 
