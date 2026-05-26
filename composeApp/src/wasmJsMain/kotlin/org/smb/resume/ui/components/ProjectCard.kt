@@ -74,7 +74,7 @@ fun ProjectCard(modifier: Modifier = Modifier, project: ProjectUiModel) {
                     .background(color_black)
                     .then(
                         if (project.url != null)
-                            Modifier.clickable { window.open(project.url) }
+                            Modifier.clickable { window.open(project.url, "_blank") }
                         else Modifier
                     )
                     .padding(vertical = 14.dp),
