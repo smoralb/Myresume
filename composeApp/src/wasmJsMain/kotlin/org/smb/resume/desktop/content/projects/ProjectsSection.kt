@@ -41,14 +41,14 @@ fun ProjectsSection(modifier: Modifier = Modifier) {
             )
         }
 
-        // Projects Grid - 3 columns
+        // height(IntrinsicSize.Max) makes all cards in the row the same height
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max),
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
             verticalAlignment = Alignment.Top
         ) {
             getProjects().forEach { project ->
-                ProjectCard(modifier = Modifier.weight(1f), project = project)
+                ProjectCard(modifier = Modifier.weight(1f).fillMaxHeight(), project = project)
             }
         }
     }

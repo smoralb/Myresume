@@ -45,6 +45,19 @@ fun ContactMobileSection(modifier: Modifier = Modifier) {
             color = color_white,
             textAlign = TextAlign.Center
         )
+        Column(
+            modifier = Modifier
+                .background(color_white)
+                .clickable { window.open("mailto:smoralber@gmail.com") }
+                .padding(vertical = Spacing.spacingMedium, horizontal = Spacing.spacingLarge),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(Res.string.contact_cta),
+                style = Typography().labelMedium.copy(fontWeight = FontWeight.Bold, letterSpacing = Typography().labelLarge.letterSpacing),
+                color = color_black
+            )
+        }
         Row(
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
             verticalAlignment = Alignment.CenterVertically

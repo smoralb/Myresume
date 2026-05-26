@@ -174,11 +174,11 @@ work.</string>
     <string name="proj_card2_tag">HTML5 / CSS3 / JAVASCRIPT</string>
     <string name="proj_card2_title">What Before!</string>
     <string name="proj_card2_desc">Un juego arcade de preguntas y respuestas donde pones a prueba tus conocimientos generales en partidas rápidas, divertidas y competitivas.</string>
-    <string name="proj_card2_link">VIEW PROJECT →</string>
-    <string name="proj_card3_tag">COMING SOON</string>
-    <string name="proj_card3_title">Under Construction</string>
-    <string name="proj_card3_desc">More projects on the way. Stay tuned!</string>
-    <string name="proj_card3_link">COMING SOON</string>
+    <string name="proj_card2_link">VER PROYECTO →</string>
+    <string name="proj_card3_tag">PRÓXIMAMENTE</string>
+    <string name="proj_card3_title">En Construcción</string>
+    <string name="proj_card3_desc">Más proyectos en camino. ¡Próximamente!</string>
+    <string name="proj_card3_link">PRÓXIMAMENTE</string>
 
     <!-- Education (new design) labels updated below -->
 

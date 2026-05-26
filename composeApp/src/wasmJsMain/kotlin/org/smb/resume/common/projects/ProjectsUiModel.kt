@@ -9,24 +9,19 @@ data class ProjectUiModel(
     val tag: StringResource,
     val title: StringResource,
     val description: StringResource,
-    val linkText: StringResource
+    val linkText: StringResource,
+    val url: String? = null
 )
 
 fun getProjects(): List<ProjectUiModel> {
     return listOf(
         ProjectUiModel(
-            imageUrl = Res.drawable.ic_idealista,
-            tag = Res.string.proj_card1_tag,
-            title = Res.string.proj_card1_title,
-            description = Res.string.proj_card1_desc,
-            linkText = Res.string.proj_card1_link
-        ),
-        ProjectUiModel(
             imageUrl = Res.drawable.ic_what_before,
             tag = Res.string.proj_card2_tag,
             title = Res.string.proj_card2_title,
             description = Res.string.proj_card2_desc,
-            linkText = Res.string.proj_card2_link
+            linkText = Res.string.proj_card2_link,
+            url = "https://smoralb.github.io/WhatBefore/"
         ),
         ProjectUiModel(
             imageUrl = Res.drawable.ic_old_pc,
