@@ -1,11 +1,6 @@
 package org.smb.resume.desktop.content.projects
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -47,14 +42,13 @@ fun ProjectsSection(modifier: Modifier = Modifier) {
         }
 
         // Projects Grid - 3 columns
-        LazyVerticalGrid(
-            columns = androidx.compose.foundation.lazy.grid.GridCells.Fixed(3),
+        Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
-            verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge)
+            verticalAlignment = Alignment.Top
         ) {
-            items(getProjects()) { project ->
-                ProjectCard(project = project)
+            getProjects().forEach { project ->
+                ProjectCard(modifier = Modifier.weight(1f), project = project)
             }
         }
     }

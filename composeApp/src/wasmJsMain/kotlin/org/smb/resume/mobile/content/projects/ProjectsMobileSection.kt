@@ -1,14 +1,9 @@
 package org.smb.resume.mobile.content.projects
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -50,13 +45,10 @@ fun ProjectsMobileSection(modifier: Modifier = Modifier) {
         }
 
         // Projects Grid - 1 column for mobile
-        LazyVerticalGrid(
-            columns = androidx.compose.foundation.lazy.grid.GridCells.Fixed(1),
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(Spacing.spacingMedium),
+        Column(
             verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
         ) {
-            items(getProjects()) { project ->
+            getProjects().forEach { project ->
                 ProjectCard(project = project)
             }
         }
