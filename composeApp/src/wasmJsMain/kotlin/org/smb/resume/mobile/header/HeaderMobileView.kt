@@ -14,7 +14,7 @@ import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
-import org.smb.resume.ui.theme.color_black
+import org.smb.resume.ui.components.AnimatedNameText
 import org.smb.resume.ui.theme.color_zinc_400
 import org.smb.resume.ui.theme.color_zinc_500
 
@@ -31,15 +31,11 @@ fun HeaderMobileView(modifier: Modifier = Modifier) {
             style = Typography().labelLarge,
             color = color_zinc_400
         )
-        Text(
-            text = stringResource(Res.string.hero_name_1),
-            style = Typography().displayLarge,
-            color = color_black
-        )
-        Text(
-            text = stringResource(Res.string.hero_name_2),
-            style = Typography().displayLarge,
-            color = color_black
+        AnimatedNameText(
+            line1 = stringResource(Res.string.hero_name_1),
+            line2 = stringResource(Res.string.hero_name_2),
+            textStyle = Typography().displayLarge,
+            lineSpacing = Spacing.spacingLarge
         )
         Row(
             modifier = Modifier.fillMaxWidth(),

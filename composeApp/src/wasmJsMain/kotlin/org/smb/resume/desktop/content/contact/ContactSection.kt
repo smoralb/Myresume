@@ -2,26 +2,37 @@ package org.smb.resume.desktop.content.contact
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.browser.window
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import org.smb.resume.ui.components.AnimatedSectionTitle
 import org.smb.resume.ui.theme.*
 
 @Composable
 fun ContactSection(modifier: Modifier = Modifier) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isHovered by interactionSource.collectIsHoveredAsState()
+
     Column(
         modifier = modifier
             .fillMaxWidth()
             .background(color_black)
-            .padding(vertical = 120.dp, horizontal = 80.dp),
+            .padding(vertical = 120.dp, horizontal = 80.dp)
+            .hoverable(interactionSource),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(40.dp)
     ) {
@@ -30,11 +41,14 @@ fun ContactSection(modifier: Modifier = Modifier) {
             style = Typography().labelMedium.copy(fontWeight = FontWeight.Bold),
             color = color_zinc_500
         )
-        Text(
+        AnimatedSectionTitle(
             text = stringResource(Res.string.contact_title),
-            style = Typography().displayMedium,
-            color = color_white,
-            textAlign = TextAlign.Center
+            textStyle = Typography().displayMedium,
+            baseColor = color_white,
+            hoverColor = color_yellow_accent,
+            isHovered = isHovered,
+            textAlign = TextAlign.Center,
+            transformOrigin = TransformOrigin(0.5f, 0.5f)
         )
         // CTA Button
         Box(
