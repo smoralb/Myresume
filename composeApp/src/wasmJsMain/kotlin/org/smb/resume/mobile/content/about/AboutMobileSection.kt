@@ -1,8 +1,5 @@
 package org.smb.resume.mobile.content.about
 
-import androidx.compose.foundation.hoverable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,8 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.text.font.FontWeight
@@ -19,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.components.AnimatedSectionTitle
+import org.smb.resume.ui.extensions.rememberIsVisibleEnough
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_black
@@ -28,14 +24,13 @@ import org.smb.resume.ui.theme.color_zinc_500
 
 @Composable
 fun AboutMobileSection(modifier: Modifier = Modifier) {
-    val interactionSource = remember { MutableInteractionSource() }
-    val isHovered by interactionSource.collectIsHoveredAsState()
+    val (isVisible, visibilityModifier) = rememberIsVisibleEnough()
 
     Column(
         modifier = modifier
             .fillMaxWidth()
             .padding(vertical = Spacing.spacingExtraLarge, horizontal = Spacing.spacingLarge)
-            .hoverable(interactionSource),
+            .then(visibilityModifier),
         verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge)
     ) {
         Text(
@@ -48,7 +43,7 @@ fun AboutMobileSection(modifier: Modifier = Modifier) {
             textStyle = Typography().headlineLarge,
             baseColor = color_black,
             hoverColor = color_yellow_accent,
-            isHovered = isHovered,
+            isHovered = isVisible,
             transformOrigin = TransformOrigin(0f, 0.5f)
         )
         Column(

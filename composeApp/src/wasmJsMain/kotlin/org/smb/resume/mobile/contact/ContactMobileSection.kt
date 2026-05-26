@@ -2,9 +2,6 @@ package org.smb.resume.mobile.contact
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.hoverable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,8 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
@@ -24,6 +19,7 @@ import kotlinx.browser.window
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.ui.components.AnimatedSectionTitle
+import org.smb.resume.ui.extensions.rememberIsVisibleEnough
 import org.smb.resume.ui.theme.Spacing
 import org.smb.resume.ui.theme.Typography
 import org.smb.resume.ui.theme.color_black
@@ -34,15 +30,14 @@ import org.smb.resume.ui.theme.color_zinc_500
 
 @Composable
 fun ContactMobileSection(modifier: Modifier = Modifier) {
-    val interactionSource = remember { MutableInteractionSource() }
-    val isHovered by interactionSource.collectIsHoveredAsState()
+    val (isVisible, visibilityModifier) = rememberIsVisibleEnough()
 
     Column(
         modifier = modifier
             .fillMaxWidth()
             .background(color_black)
             .padding(vertical = Spacing.spacingExtraLarge, horizontal = Spacing.spacingLarge)
-            .hoverable(interactionSource),
+            .then(visibilityModifier),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge)
     ) {
@@ -56,7 +51,7 @@ fun ContactMobileSection(modifier: Modifier = Modifier) {
             textStyle = Typography().displaySmall,
             baseColor = color_white,
             hoverColor = color_yellow_accent,
-            isHovered = isHovered,
+            isHovered = isVisible,
             textAlign = TextAlign.Center,
             transformOrigin = TransformOrigin(0.5f, 0.5f)
         )
