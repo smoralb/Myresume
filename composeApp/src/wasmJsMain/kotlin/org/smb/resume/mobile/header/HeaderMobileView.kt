@@ -35,7 +35,8 @@ fun HeaderMobileView(modifier: Modifier = Modifier) {
             line1 = stringResource(Res.string.hero_name_1),
             line2 = stringResource(Res.string.hero_name_2),
             textStyle = Typography().displayLarge,
-            lineSpacing = Spacing.spacingLarge
+            lineSpacing = Spacing.spacingLarge,
+            autoShrinkToWidth = true
         )
         Row(
             modifier = Modifier.fillMaxWidth(),

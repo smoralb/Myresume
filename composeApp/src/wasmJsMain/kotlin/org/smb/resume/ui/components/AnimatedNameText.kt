@@ -23,8 +23,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.isSpecified
 import org.smb.resume.ui.theme.color_black
 import org.smb.resume.ui.theme.color_yellow_accent
 
@@ -38,7 +42,8 @@ fun AnimatedNameText(
     baseColor: Color = color_black,
     highlightColor: Color = color_yellow_accent,
     durationMillis: Int = 900,
-    skewFraction: Float = 0.18f
+    skewFraction: Float = 0.18f,
+    autoShrinkToWidth: Boolean = false
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
@@ -63,19 +68,75 @@ fun AnimatedNameText(
         }
     }
 
-    Box(modifier = modifier.hoverable(interactionSource)) {
-        Column(verticalArrangement = Arrangement.spacedBy(lineSpacing)) {
-            Text(text = line1, style = textStyle, color = baseColor)
-            Text(text = line2, style = textStyle, color = baseColor)
-        }
-        YellowOverlay(
-            progress = { progress.value },
-            skewFraction = skewFraction
-        ) {
-            Column(verticalArrangement = Arrangement.spacedBy(lineSpacing)) {
-                Text(text = line1, style = textStyle, color = highlightColor)
-                Text(text = line2, style = textStyle, color = highlightColor)
+    if (autoShrinkToWidth) {
+        BoxWithConstraints(modifier = modifier.hoverable(interactionSource)) {
+            val measurer = rememberTextMeasurer()
+            val effectiveStyle = remember(line1, line2, textStyle, constraints) {
+                if (!constraints.hasBoundedWidth) {
+                    textStyle
+                } else {
+                    val maxW = constraints.maxWidth
+                    val w1 = measurer.measure(text = line1, style = textStyle, constraints = Constraints()).size.width
+                    val w2 = measurer.measure(text = line2, style = textStyle, constraints = Constraints()).size.width
+                    val widest = maxOf(w1, w2)
+                    if (widest == 0 || widest <= maxW) {
+                        textStyle
+                    } else {
+                        val scale = maxW.toFloat() / widest.toFloat()
+                        textStyle.copy(
+                            fontSize = if (textStyle.fontSize.isSpecified) textStyle.fontSize * scale else textStyle.fontSize,
+                            lineHeight = if (textStyle.lineHeight.isSpecified) textStyle.lineHeight * scale else textStyle.lineHeight,
+                            letterSpacing = if (textStyle.letterSpacing.isSpecified) textStyle.letterSpacing * scale else textStyle.letterSpacing
+                        )
+                    }
+                }
             }
+            AnimatedNameContent(
+                line1 = line1,
+                line2 = line2,
+                textStyle = effectiveStyle,
+                lineSpacing = lineSpacing,
+                baseColor = baseColor,
+                highlightColor = highlightColor,
+                progress = { progress.value },
+                skewFraction = skewFraction
+            )
+        }
+    } else {
+        Box(modifier = modifier.hoverable(interactionSource)) {
+            AnimatedNameContent(
+                line1 = line1,
+                line2 = line2,
+                textStyle = textStyle,
+                lineSpacing = lineSpacing,
+                baseColor = baseColor,
+                highlightColor = highlightColor,
+                progress = { progress.value },
+                skewFraction = skewFraction
+            )
+        }
+    }
+}
+
+@Composable
+private fun BoxScope.AnimatedNameContent(
+    line1: String,
+    line2: String,
+    textStyle: TextStyle,
+    lineSpacing: Dp,
+    baseColor: Color,
+    highlightColor: Color,
+    progress: () -> Float,
+    skewFraction: Float
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(lineSpacing)) {
+        Text(text = line1, style = textStyle, color = baseColor)
+        Text(text = line2, style = textStyle, color = baseColor)
+    }
+    YellowOverlay(progress = progress, skewFraction = skewFraction) {
+        Column(verticalArrangement = Arrangement.spacedBy(lineSpacing)) {
+            Text(text = line1, style = textStyle, color = highlightColor)
+            Text(text = line2, style = textStyle, color = highlightColor)
         }
     }
 }

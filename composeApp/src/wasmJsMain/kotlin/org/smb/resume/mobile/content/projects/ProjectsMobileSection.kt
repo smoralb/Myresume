@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 import org.smb.resume.common.projects.getProjects
@@ -45,7 +46,7 @@ fun ProjectsMobileSection(modifier: Modifier = Modifier) {
             )
             AnimatedSectionTitle(
                 text = stringResource(Res.string.proj_title),
-                textStyle = Typography().headlineLarge,
+                textStyle = Typography().headlineLarge.copy(fontSize = 36.sp, lineHeight = 36.sp, letterSpacing = (-0.5).sp),
                 baseColor = color_black,
                 hoverColor = color_blue_accent,
                 isHovered = isVisible,
