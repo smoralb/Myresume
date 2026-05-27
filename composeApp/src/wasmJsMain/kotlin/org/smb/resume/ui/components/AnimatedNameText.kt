@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -82,7 +83,7 @@ fun AnimatedNameText(
                     if (widest == 0 || widest <= maxW) {
                         textStyle
                     } else {
-                        val scale = maxW.toFloat() / widest.toFloat()
+                        val scale = (maxW.toFloat() / widest.toFloat()) * 0.97f
                         textStyle.copy(
                             fontSize = if (textStyle.fontSize.isSpecified) textStyle.fontSize * scale else textStyle.fontSize,
                             lineHeight = if (textStyle.lineHeight.isSpecified) textStyle.lineHeight * scale else textStyle.lineHeight,
@@ -130,13 +131,13 @@ private fun BoxScope.AnimatedNameContent(
     skewFraction: Float
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(lineSpacing)) {
-        Text(text = line1, style = textStyle, color = baseColor)
-        Text(text = line2, style = textStyle, color = baseColor)
+        Text(text = line1, style = textStyle, color = baseColor, maxLines = 1, softWrap = false, overflow = TextOverflow.Clip)
+        Text(text = line2, style = textStyle, color = baseColor, maxLines = 1, softWrap = false, overflow = TextOverflow.Clip)
     }
     YellowOverlay(progress = progress, skewFraction = skewFraction) {
         Column(verticalArrangement = Arrangement.spacedBy(lineSpacing)) {
-            Text(text = line1, style = textStyle, color = highlightColor)
-            Text(text = line2, style = textStyle, color = highlightColor)
+            Text(text = line1, style = textStyle, color = highlightColor, maxLines = 1, softWrap = false, overflow = TextOverflow.Clip)
+            Text(text = line2, style = textStyle, color = highlightColor, maxLines = 1, softWrap = false, overflow = TextOverflow.Clip)
         }
     }
 }
