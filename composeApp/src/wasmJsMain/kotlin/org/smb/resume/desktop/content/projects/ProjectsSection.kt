@@ -62,7 +62,11 @@ fun ProjectsSection(modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.Top
         ) {
             getProjects().forEach { project ->
-                ProjectCard(modifier = Modifier.weight(1f).fillMaxHeight(), project = project)
+                ProjectCard(
+                    modifier = Modifier.weight(if (project.isCompact) 0.55f else 1f)
+                        .fillMaxHeight(),
+                    project = project
+                )
             }
         }
     }

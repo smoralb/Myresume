@@ -40,13 +40,11 @@ fun ProjectCard(modifier: Modifier = Modifier, project: ProjectUiModel) {
         ) {
             if (project.imageUrl != null) {
                 Image(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(180.dp),
+                    modifier = Modifier.fillMaxWidth(),
                     painter = painterResource(project.imageUrl),
                     alignment = Alignment.Center,
                     contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.FillWidth
                 )
                 Spacer(modifier = Modifier.height(Spacing.spacingMedium))
             }

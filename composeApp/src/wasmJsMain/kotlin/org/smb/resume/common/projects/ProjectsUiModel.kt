@@ -10,7 +10,8 @@ data class ProjectUiModel(
     val title: StringResource,
     val description: StringResource,
     val linkText: StringResource,
-    val url: String? = null
+    val url: String? = null,
+    val isCompact: Boolean = false
 )
 
 fun getProjects(): List<ProjectUiModel> {
@@ -28,7 +29,8 @@ fun getProjects(): List<ProjectUiModel> {
             tag = Res.string.proj_card3_tag,
             title = Res.string.proj_card3_title,
             description = Res.string.proj_card3_desc,
-            linkText = Res.string.proj_card3_link
+            linkText = Res.string.proj_card3_link,
+            isCompact = true
         )
     )
 }
