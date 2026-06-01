@@ -38,16 +38,18 @@ fun ProjectCard(modifier: Modifier = Modifier, project: ProjectUiModel) {
                 .fillMaxHeight()
                 .padding(Spacing.spacingLarge)
         ) {
-            Image(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp),
-                painter = painterResource(project.imageUrl),
-                alignment = Alignment.Center,
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
-            Spacer(modifier = Modifier.height(Spacing.spacingMedium))
+            if (project.imageUrl != null) {
+                Image(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(180.dp),
+                    painter = painterResource(project.imageUrl),
+                    alignment = Alignment.Center,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop
+                )
+                Spacer(modifier = Modifier.height(Spacing.spacingMedium))
+            }
             Text(
                 text = stringResource(project.tag),
                 style = Typography().labelSmall,

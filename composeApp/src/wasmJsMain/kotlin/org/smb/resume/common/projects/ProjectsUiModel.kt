@@ -5,7 +5,7 @@ import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 
 data class ProjectUiModel(
-    val imageUrl: DrawableResource,
+    val imageUrl: DrawableResource? = null,
     val tag: StringResource,
     val title: StringResource,
     val description: StringResource,
@@ -24,7 +24,7 @@ fun getProjects(): List<ProjectUiModel> {
             url = "https://smoralb.github.io/WhatBefore/"
         ),
         ProjectUiModel(
-            imageUrl = Res.drawable.ic_old_pc,
+            imageUrl = null,
             tag = Res.string.proj_card3_tag,
             title = Res.string.proj_card3_title,
             description = Res.string.proj_card3_desc,
