@@ -35,16 +35,15 @@ fun ProjectCard(modifier: Modifier = Modifier, project: ProjectUiModel) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight()
                 .padding(Spacing.spacingLarge)
         ) {
             if (project.imageUrl != null) {
                 Image(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().height(200.dp),
                     painter = painterResource(project.imageUrl),
                     alignment = Alignment.Center,
                     contentDescription = null,
-                    contentScale = ContentScale.FillWidth
+                    contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.height(Spacing.spacingMedium))
             }
@@ -65,8 +64,6 @@ fun ProjectCard(modifier: Modifier = Modifier, project: ProjectUiModel) {
                 style = Typography().bodyMedium,
                 color = color_zinc_500
             )
-            // Pushes button to bottom when card has fixed height (desktop equal-height row)
-            Spacer(modifier = Modifier.weight(1f))
             Spacer(modifier = Modifier.height(Spacing.spacingMedium))
             Box(
                 modifier = Modifier

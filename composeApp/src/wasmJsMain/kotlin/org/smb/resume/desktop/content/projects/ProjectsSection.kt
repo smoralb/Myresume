@@ -55,16 +55,14 @@ fun ProjectsSection(modifier: Modifier = Modifier) {
             )
         }
 
-        // height(IntrinsicSize.Max) makes all cards in the row the same height
         Row(
-            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
             verticalAlignment = Alignment.Top
         ) {
             getProjects().forEach { project ->
                 ProjectCard(
-                    modifier = Modifier.weight(if (project.isCompact) 0.55f else 1f)
-                        .fillMaxHeight(),
+                    modifier = Modifier.weight(1f).widthIn(max = 500.dp),
                     project = project
                 )
             }
