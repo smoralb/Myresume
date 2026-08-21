@@ -55,14 +55,15 @@ fun ProjectsSection(modifier: Modifier = Modifier) {
             )
         }
 
-        Row(
+        FlowRow(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
-            verticalAlignment = Alignment.Top
+            verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
+            maxItemsInEachRow = 3
         ) {
             getProjects().forEach { project ->
                 ProjectCard(
-                    modifier = Modifier.weight(1f).widthIn(max = 500.dp),
+                    modifier = Modifier.weight(1f).widthIn(max = 380.dp),
                     project = project
                 )
             }
