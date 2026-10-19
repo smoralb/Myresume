@@ -1,25 +1,36 @@
 package org.smb.resume.desktop.content.experience
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import myresume.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import org.smb.resume.ui.components.AnimatedSectionTitle
 import org.smb.resume.ui.theme.*
 
 @Composable
 fun ExperienceSection(modifier: Modifier = Modifier) {
+    val interactionSource = remember { MutableInteractionSource() }
+    val isHovered by interactionSource.collectIsHoveredAsState()
+
     Column(
         modifier = modifier
             .fillMaxWidth()
             .background(color_black)
-            .padding(vertical = 100.dp, horizontal = 80.dp),
+            .padding(vertical = 100.dp, horizontal = 80.dp)
+            .hoverable(interactionSource),
         verticalArrangement = Arrangement.spacedBy(60.dp)
     ) {
         // Header
@@ -33,11 +44,14 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
                 style = Typography().labelMedium.copy(fontWeight = FontWeight.Bold),
                 color = color_white
             )
-            Text(
+            AnimatedSectionTitle(
                 text = stringResource(Res.string.exp_title),
-                style = Typography().headlineLarge,
-                color = color_white,
-                textAlign = TextAlign.End
+                textStyle = Typography().headlineLarge,
+                baseColor = color_white,
+                hoverColor = color_green_accent,
+                isHovered = isHovered,
+                textAlign = TextAlign.End,
+                transformOrigin = TransformOrigin(1f, 0.5f)
             )
         }
 

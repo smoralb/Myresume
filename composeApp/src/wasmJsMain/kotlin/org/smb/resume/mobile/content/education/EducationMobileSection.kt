@@ -1,31 +1,106 @@
 package org.smb.resume.mobile.content.education
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import myresume.composeapp.generated.resources.Res
-import myresume.composeapp.generated.resources.content_studies_title
-import org.smb.resume.common.studies.getStudies
-import org.smb.resume.mobile.content.header.HeaderSectionView
-import org.smb.resume.ui.components.EducationItemCard
+import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import myresume.composeapp.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
+import org.smb.resume.ui.components.AnimatedSectionTitle
+import org.smb.resume.ui.extensions.rememberIsVisibleEnough
 import org.smb.resume.ui.theme.Spacing
+import org.smb.resume.ui.theme.Typography
+import org.smb.resume.ui.theme.color_black
+import org.smb.resume.ui.theme.color_magenta_accent
+import org.smb.resume.ui.theme.color_zinc_500
+import org.smb.resume.ui.theme.color_zinc_800
 
 @Composable
-fun EducationMobileSection() {
-    HeaderSectionView(title = Res.string.content_studies_title)
+fun EducationMobileSection(modifier: Modifier = Modifier) {
+    val (isVisible, visibilityModifier) = rememberIsVisibleEnough()
 
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = Spacing.spacingExtraLarge, horizontal = Spacing.spacingLarge)
+            .then(visibilityModifier),
+        verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge)
+    ) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(Spacing.spacingMedium)
+        ) {
+            Text(
+                text = stringResource(Res.string.edu_label),
+                style = Typography().labelMedium.copy(fontWeight = FontWeight.Bold),
+                color = color_black
+            )
+            AnimatedSectionTitle(
+                text = stringResource(Res.string.edu_title),
+                textStyle = Typography().headlineLarge.copy(fontSize = 36.sp, lineHeight = 36.sp, letterSpacing = (-0.5).sp),
+                baseColor = color_black,
+                hoverColor = color_magenta_accent,
+                isHovered = isVisible,
+                textAlign = TextAlign.End,
+                transformOrigin = TransformOrigin(1f, 0.5f)
+            )
+        }
+
+        Column(modifier = Modifier.fillMaxWidth()) {
+            MobileDivider()
+            MobileEducationEntry(
+                institution = stringResource(Res.string.edu_1_name),
+                degree = stringResource(Res.string.edu_1_degree)
+            )
+            MobileDivider()
+            MobileEducationEntry(
+                institution = stringResource(Res.string.edu_2_name),
+                degree = stringResource(Res.string.edu_2_degree)
+            )
+            MobileDivider()
+        }
+    }
+}
+
+@Composable
+private fun MobileEducationEntry(
+    institution: String,
+    degree: String
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(
-                vertical = Spacing.spacingLarge,
-                horizontal = Spacing.spacingLarge
-            )
-            .height(IntrinsicSize.Max),
+            .padding(vertical = Spacing.spacingLarge),
         verticalArrangement = Arrangement.spacedBy(Spacing.spacingSmall)
     ) {
-        getStudies().forEach { studyItem ->
-            EducationItemCard(item = studyItem)
-        }
+        Text(
+            text = institution,
+            style = Typography().titleLarge,
+            color = color_black
+        )
+        Text(
+            text = degree,
+            style = Typography().bodyMedium,
+            color = color_zinc_500
+        )
     }
+}
+
+@Composable
+private fun MobileDivider() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(1.dp)
+            .background(color_zinc_800)
+    ) {}
 }
