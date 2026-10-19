@@ -167,14 +167,11 @@ worked.</string>
     <string name="proj_label">03 — PROJECTS</string>
     <string name="proj_title">Selected
 work.</string>
-    <string name="proj_card1_tag">ANDROID / KOTLIN / COMPOSE</string>
-    <string name="proj_card1_title">Real Estate App</string>
-    <string name="proj_card1_desc">A property search platform serving millions of users. Built with Jetpack Compose and clean architecture.</string>
-    <string name="proj_card1_link">VIEW PROJECT →</string>
-    <string name="proj_card2_tag">ANDROID / MVVM / HILT</string>
-    <string name="proj_card2_title">Fitness Tracker</string>
-    <string name="proj_card2_desc">A health and fitness companion app with real-time data sync, custom workout plans, and progress analytics.</string>
-    <string name="proj_card2_link">VIEW PROJECT →</string>
+    <string name="proj_p23_tag">WEB APP / GAME DISCOVERY</string>
+    <string name="proj_p23_title">Planet 23</string>
+    <string name="proj_p23_tagline">Find your next video game.</string>
+    <string name="proj_p23_desc">A free game discovery app. Six quick questions about platforms, genres, modes and release year, then swipe through games one at a time with ratings, trailers and deals, until you reach a shortlist of five finalists.</string>
+    <string name="proj_p23_link">VISIT PLANET23.APP →</string>
 
     <!-- Education (new design) labels updated below -->
 
