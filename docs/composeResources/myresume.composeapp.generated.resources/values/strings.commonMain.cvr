@@ -15,7 +15,6 @@ string|contact_email|c21vcmFsYmVyQGdtYWlsLmNvbQ==
 string|contact_label|MDUg4oCUIENPTlRBQ1Q=
 string|contact_social_github|R0lUSFVC
 string|contact_social_linkedin|TElOS0VESU4=
-string|contact_social_twitter|VFdJVFRFUg==
 string|contact_socials_github|R0lUSFVC
 string|contact_socials_linkedin|TElOS0VESU4=
 string|contact_socials_medium|TUVESVVN
@@ -134,6 +133,11 @@ string|proj_card3_link|UFLDk1hJTUFNRU5URQ==
 string|proj_card3_tag|UFLDk1hJTUFNRU5URQ==
 string|proj_card3_title|RW4gQ29uc3RydWNjacOzbg==
 string|proj_label|MDMg4oCUIFBST0pFQ1RT
+string|proj_p23_desc|QSBmcmVlIGdhbWUgZGlzY292ZXJ5IGFwcC4gU2l4IHF1aWNrIHF1ZXN0aW9ucyBhYm91dCBwbGF0Zm9ybXMsIGdlbnJlcywgbW9kZXMgYW5kIHJlbGVhc2UgeWVhciwgdGhlbiBzd2lwZSB0aHJvdWdoIGdhbWVzIG9uZSBhdCBhIHRpbWUgd2l0aCByYXRpbmdzLCB0cmFpbGVycyBhbmQgZGVhbHMsIHVudGlsIHlvdSByZWFjaCBhIHNob3J0bGlzdCBvZiBmaXZlIGZpbmFsaXN0cy4=
+string|proj_p23_link|VklTSVQgUExBTkVUMjMuQVBQIOKGkg==
+string|proj_p23_tagline|RmluZCB5b3VyIG5leHQgdmlkZW8gZ2FtZS4=
+string|proj_p23_tag|V0VCIEFQUCAvIEdBTUUgRElTQ09WRVJZ
+string|proj_p23_title|UGxhbmV0IDIz
 string|proj_title|U2VsZWN0ZWQKd29yay4=
 string|role|QW5kcm9pZCBkZXZlbG9wZXI=
 string|swift|U3dpZnQgKFdJUCk=
