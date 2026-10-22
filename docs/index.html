@@ -83,7 +83,9 @@
         gtag('config', 'G-HXH3J62WK0');
     </script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="cad28658-f4b1-41de-9362-feae34f2ebfd"></script>
-    <script async src="https://letsreplay.co/tracker.js" data-site-id="eb98a050becb4f83be59a36e32b8ad0b"></script>
+    <!-- data-record-canvas="false": rrweb's canvas snapshots call gl.clear() on the Compose WebGL canvas,
+         blanking the whole UI until the next redraw. -->
+    <script async src="https://letsreplay.co/tracker.js" data-site-id="eb98a050becb4f83be59a36e32b8ad0b" data-record-canvas="false"></script>
 </head>
 <body>
 <noscript>
