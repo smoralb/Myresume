@@ -7,10 +7,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.TransformOrigin
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -20,12 +24,15 @@ import org.smb.resume.common.projects.getProjects
 import org.smb.resume.ui.components.AnimatedSectionTitle
 import org.smb.resume.ui.components.Planet23Card
 import org.smb.resume.ui.components.ProjectCard
+import org.smb.resume.ui.components.WhatBeforeCard
 import org.smb.resume.ui.theme.*
 
 @Composable
 fun ProjectsSection(modifier: Modifier = Modifier) {
     val interactionSource = remember { MutableInteractionSource() }
     val isHovered by interactionSource.collectIsHoveredAsState()
+    val density = LocalDensity.current
+    var themedCardHeight by remember { mutableStateOf(0.dp) }
 
     Column(
         modifier = modifier
@@ -62,8 +69,19 @@ fun ProjectsSection(modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(Spacing.spacingLarge),
             maxItemsInEachRow = 3
         ) {
-            Planet23Card(modifier = Modifier.weight(1f).widthIn(max = 380.dp))
-            getProjects().forEach { project ->
+            // Both themed cards share the tallest card's height
+            val themedCardModifier = Modifier
+                .weight(1f)
+                .widthIn(max = 380.dp)
+                .heightIn(min = themedCardHeight)
+                .onSizeChanged { size ->
+                    val height = with(density) { size.height.toDp() }
+                    if (height > themedCardHeight) themedCardHeight = height
+                }
+            Planet23Card(modifier = themedCardModifier)
+            WhatBeforeCard(modifier = themedCardModifier)
+            // Full projects have bespoke themed cards above; only placeholders use the shared card
+            getProjects().filter { it.isCompact }.forEach { project ->
                 ProjectCard(
                     modifier = Modifier.weight(1f).widthIn(max = 380.dp),
                     project = project

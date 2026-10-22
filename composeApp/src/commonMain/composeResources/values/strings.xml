@@ -171,19 +171,20 @@ work.</string>
     <string name="proj_p23_title">Planet 23</string>
     <string name="proj_p23_tagline">Find your next video game.</string>
     <string name="proj_p23_desc">A free game discovery app. Six quick questions about platforms, genres, modes and release year, then swipe through games one at a time with ratings, trailers and deals, until you reach a shortlist of five finalists.</string>
-    <string name="proj_p23_link">VISIT PLANET23.APP →</string>
+    <string name="proj_p23_link">VISIT PLANET23.APP</string>
     <string name="proj_card1_tag">ANDROID / KOTLIN / COMPOSE</string>
     <string name="proj_card1_title">Real Estate App</string>
     <string name="proj_card1_desc">A property search platform serving millions of users. Built with Jetpack Compose and clean architecture.</string>
-    <string name="proj_card1_link">VIEW PROJECT →</string>
+    <string name="proj_card1_link">VIEW PROJECT</string>
     <string name="proj_card2_tag">HTML5 / CSS3 / JAVASCRIPT</string>
     <string name="proj_card2_title">What Before!</string>
-    <string name="proj_card2_desc">Un juego arcade de preguntas y respuestas donde pones a prueba tus conocimientos generales en partidas rápidas, divertidas y competitivas.</string>
-    <string name="proj_card2_link">VER PROYECTO →</string>
-    <string name="proj_card3_tag">PRÓXIMAMENTE</string>
-    <string name="proj_card3_title">En Construcción</string>
-    <string name="proj_card3_desc">Más proyectos en camino. ¡Próximamente!</string>
-    <string name="proj_card3_link">PRÓXIMAMENTE</string>
+    <string name="proj_card2_tagline">Put what you know to the test.</string>
+    <string name="proj_card2_desc">An arcade trivia game that puts your general knowledge to the test in quick, fun and competitive rounds.</string>
+    <string name="proj_card2_link">VIEW PROJECT</string>
+    <string name="proj_card3_tag">COMING SOON</string>
+    <string name="proj_card3_title">Under Construction</string>
+    <string name="proj_card3_desc">More projects on the way. Coming soon!</string>
+    <string name="proj_card3_link">COMING SOON</string>
 
     <!-- Education (new design) labels updated below -->
 

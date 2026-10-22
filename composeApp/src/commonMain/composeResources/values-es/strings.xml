@@ -1,0 +1,84 @@
+<resources>
+    <!-- Spanish translations. Strings not listed here (names, numbers, dates) fall back to values/strings.xml -->
+
+    <!-- Header -->
+    <string name="role">Desarrollador Android</string>
+    <string name="location">Madrid, España</string>
+
+    <!-- Nav -->
+    <string name="nav_about">SOBRE MÍ</string>
+    <string name="nav_experience">EXPERIENCIA</string>
+    <string name="nav_projects">PROYECTOS</string>
+    <string name="nav_contact">CONTACTO</string>
+
+    <!-- Hero -->
+    <string name="hero_label">DESARROLLADOR DE APPS</string>
+    <string name="hero_desc">Creando experiencias móviles robustas
+con arquitectura limpia y Kotlin.</string>
+    <string name="hero_scroll">DESLIZA ↓</string>
+
+    <!-- About -->
+    <string name="about_label">01 — SOBRE MÍ</string>
+    <string name="about_title">Construyendo cosas
+que importan.</string>
+    <string name="about_p1">Soy desarrollador Android en España, apasionado por crear aplicaciones móviles elegantes y eficientes. Estoy especializado en Kotlin, Jetpack Compose y patrones de arquitectura limpia.</string>
+    <string name="about_p2">Con años de experiencia en el sector, he trabajado en apps que usan millones de personas. Creo en escribir código que no solo funcione, sino que también sea mantenible y escalable.</string>
+    <string name="about_stat1_label">AÑOS EXP.</string>
+    <string name="about_stat2_label">PROYECTOS</string>
+    <string name="about_stat3_label">USUARIOS</string>
+
+    <!-- Experience -->
+    <string name="exp_label">02 — EXPERIENCIA</string>
+    <string name="exp_title">Dónde he
+trabajado.</string>
+    <string name="exp_job1_year">2022 — ACTUALIDAD</string>
+    <string name="exp_job1_title">Desarrollador de Apps</string>
+    <string name="exp_job1_desc">Desarrollador Android en una app de consumo con mucho tráfico y más de 300k usuarios activos, centrado en rendimiento, UX y migración a frameworks de UI modernos.</string>
+    <string name="exp_job2_title">Desarrollador Android</string>
+    <string name="exp_job2_desc">Trabajé en la app de clientes de Openbank, desarrollando nuevas funcionalidades, manteniendo la calidad del código y asegurando la estabilidad con más de un 90% de cobertura de tests.</string>
+    <string name="exp_job3_title">Desarrollador Android</string>
+    <string name="exp_job3_desc">Lideré el desarrollo Android para clientes de retail y gran consumo. Proyecto principal: app de Leroy Merlin.</string>
+    <string name="exp_job4_title">Desarrollador de Software</string>
+    <string name="exp_job4_desc">Trabajé en tareas de desarrollo Android y web, incluyendo planificación de arquitectura y documentación técnica.</string>
+    <string name="exp_job5_title">Desarrollador Android</string>
+    <string name="exp_job5_desc">Participé en proyectos de los sectores bancario y de reconocimiento de documentos. Proyecto principal: app de Santander Chile.</string>
+    <string name="exp_job6_title">Desarrollador Android (Prácticas)</string>
+    <string name="exp_job6_desc">Lideré y colaboré en varios proyectos Android con Java y Kotlin. Proyecto principal: app de la Seguridad Social.</string>
+
+    <!-- Projects -->
+    <string name="proj_label">03 — PROYECTOS</string>
+    <string name="proj_title">Trabajos
+destacados.</string>
+    <string name="proj_p23_tag">WEB APP / VIDEOJUEGOS</string>
+    <string name="proj_p23_tagline">Encuentra tu próximo videojuego.</string>
+    <string name="proj_p23_desc">Una app gratuita para descubrir videojuegos. Seis preguntas rápidas sobre plataformas, géneros, modos y año de lanzamiento; después desliza entre juegos uno a uno, con valoraciones, tráileres y ofertas, hasta quedarte con cinco finalistas.</string>
+    <string name="proj_p23_link">VISITAR PLANET23.APP</string>
+    <string name="proj_card1_title">App Inmobiliaria</string>
+    <string name="proj_card1_desc">Una plataforma de búsqueda de inmuebles usada por millones de personas. Desarrollada con Jetpack Compose y arquitectura limpia.</string>
+    <string name="proj_card1_link">VER PROYECTO</string>
+    <string name="proj_card2_tagline">Pon a prueba lo que sabes.</string>
+    <string name="proj_card2_desc">Un juego arcade de preguntas y respuestas donde pones a prueba tus conocimientos generales en partidas rápidas, divertidas y competitivas.</string>
+    <string name="proj_card2_link">VER PROYECTO</string>
+    <string name="proj_card3_tag">PRÓXIMAMENTE</string>
+    <string name="proj_card3_title">En Construcción</string>
+    <string name="proj_card3_desc">Más proyectos en camino. ¡Próximamente!</string>
+    <string name="proj_card3_link">PRÓXIMAMENTE</string>
+
+    <!-- Education -->
+    <string name="edu_label">04 — FORMACIÓN</string>
+    <string name="edu_title">Dónde he
+aprendido.</string>
+    <string name="edu_1_degree">Desarrollo de Apps Android (200 h)</string>
+    <string name="edu_2_degree">Kotlin para desarrolladores Java, de JetBrains</string>
+
+    <!-- Contact -->
+    <string name="contact_label">05 — CONTACTO</string>
+    <string name="contact_title">Construyamos
+algo
+juntos.</string>
+    <string name="contact_cta">CONTACTA CONMIGO</string>
+
+    <!-- Footer -->
+    <string name="footer_language">Web hecha con Compose Multiplatform</string>
+    <string name="footer_tagline">Diseñado con propósito.</string>
+</resources>
